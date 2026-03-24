@@ -5,9 +5,24 @@ function Update-System {
     # --- [0/3] Update Script via Git ---
     Write-Host "--- Updating Script from Repository ---" -ForegroundColor Cyan
     $repoPath = $PSScriptRoot
-    Push-Location $repoPath
-    git pull origin main
-    Pop-Location
+    if (Test-Path (Join-Path $repoPath ".git")) {
+        Push-Location $repoPath
+        if (Get-Command git -ErrorAction SilentlyContinue) {
+            # Git pull requires no login for public repositories.
+            # We redirect standard error so it doesn't pollute the console if the user is offline.
+            $pullResult = git pull origin main 2>&1
+            if ($LASTEXITCODE -ne 0) {
+                Write-Warning "Auto-update failed: $pullResult"
+            } else {
+                Write-Host "  [OK] Script is up to date." -ForegroundColor Green
+            }
+        } else {
+            Write-Warning "  Git is not installed on this system. Skipping script auto-update."
+        }
+        Pop-Location
+    } else {
+        Write-Warning "  Folder is not a Git repository. Skipping script auto-update."
+    }
 
     # --- Package exclusion list (managed via winget pin) ---
     $excludedPackages = @(
