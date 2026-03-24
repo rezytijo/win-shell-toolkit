@@ -5,23 +5,38 @@ function Update-System {
     # --- [0/3] Update Script via Git ---
     Write-Host "--- Updating Script from Repository ---" -ForegroundColor Cyan
     $repoPath = $PSScriptRoot
-    if (Test-Path (Join-Path $repoPath ".git")) {
+    $repoUrl = "https://github.com/rezytijo/win-shell-toolkit.git"
+
+    if (Get-Command git -ErrorAction SilentlyContinue) {
         Push-Location $repoPath
-        if (Get-Command git -ErrorAction SilentlyContinue) {
-            # Git pull requires no login for public repositories.
-            # We redirect standard error so it doesn't pollute the console if the user is offline.
-            $pullResult = git pull origin main 2>&1
-            if ($LASTEXITCODE -ne 0) {
-                Write-Warning "Auto-update failed: $pullResult"
-            } else {
-                Write-Host "  [OK] Script is up to date." -ForegroundColor Green
-            }
+        
+        # 1. Jika belum menjadi Git repo, setup dan paksa ambil semuanya (clone in place)
+        if (-not (Test-Path (Join-Path $repoPath ".git"))) {
+            Write-Host "  [Init] Folder bukan Git repository. Mengunduh codebase..." -ForegroundColor Yellow
+            git init | Out-Null
+            git remote add origin $repoUrl | Out-Null
+            git fetch origin | Out-Null
+            git reset --hard origin/main | Out-Null
+            git branch -M main | Out-Null
         } else {
-            Write-Warning "  Git is not installed on this system. Skipping script auto-update."
+            # Jika sudah git repo, pastikan remote URL tetap benar
+            $currentRemote = git config --get remote.origin.url
+            if ($currentRemote -ne $repoUrl) {
+                git remote set-url origin $repoUrl | Out-Null
+            }
         }
+
+        # 2. Lakukan pull untuk update codebase terbaru
+        $pullResult = git pull origin main 2>&1
+        if ($LASTEXITCODE -ne 0) {
+            Write-Warning "  Auto-update script gagal: $pullResult"
+        } else {
+            Write-Host "  [OK] Script codebase berhasil di-update." -ForegroundColor Green
+        }
+        
         Pop-Location
     } else {
-        Write-Warning "  Folder is not a Git repository. Skipping script auto-update."
+        Write-Warning "  Git tidak terinstall pada sistem ini. Membutuhkan Git untuk mengunduh versi script terbaru."
     }
 
     # --- Package exclusion list (managed via winget pin) ---
