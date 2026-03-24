@@ -41,7 +41,6 @@ desktop.ini
 
 # UN-IGNORE source .bat scripts
 !export-to-pdf.bat
-!update.bat
 
 # JANGAN IGNORE Context.md (Dibutuhkan oleh perintah 'cmds')
 !Context.md
