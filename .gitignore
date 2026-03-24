@@ -1,0 +1,47 @@
+# System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Output Archives
+*.zip
+*.rar
+*.7z
+
+# Temporary and Cache
+*.log
+*.tmp
+*.bak
+*.db
+*.json
+*.csv
+
+# IDE / Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment Files
+.env
+.env.local
+.env.*.local
+
+# AI Agent Specific (if applicable)
+.agent/brain/
+.agent/logs/
+.agent/temp/
+.codex/sessions/
+.codex/history.jsonl
+.google/
+
+# --- Bat Shims Management ---
+# Ignore all .bat because most are auto-generated from setup.ps1
+*.bat
+
+# UN-IGNORE source .bat scripts
+!export-to-pdf.bat
+!update.bat
+
+# JANGAN IGNORE Context.md (Dibutuhkan oleh perintah 'cmds')
+!Context.md
