@@ -4,7 +4,7 @@
 function Update-System {
     # --- [0/3] Update Script via Git ---
     Write-Host "--- Updating Script from Repository ---" -ForegroundColor Cyan
-    $repoPath = Split-Path -Parent $MyInvocation.MyCommand.Path
+    $repoPath = $PSScriptRoot
     Push-Location $repoPath
     git pull origin main
     Pop-Location
