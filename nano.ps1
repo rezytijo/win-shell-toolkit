@@ -1,5 +1,6 @@
 # nano.ps1 -- Edit files with Administrator privileges (Linux `nano` equivalent)
-# 2026-03-11 -- v1.0.0: Initial version
+# 2026-04-05 -- v1.0.1: Added global error handling
+$ErrorActionPreference = 'Stop'
 
 <#
 .SYNOPSIS
@@ -47,6 +48,11 @@ function Invoke-Nano {
 }
 
 if ($MyInvocation.InvocationName -ne '.') {
-    Invoke-Nano @args
+    try {
+        Invoke-Nano @args
+    } catch {
+        Write-Host "`n[ERROR] A critical error occurred in $($MyInvocation.MyCommand.Name):" -ForegroundColor Red
+        Write-Host "Message: $($_.Exception.Message)" -ForegroundColor Red
+        exit 1
+    }
 }
-

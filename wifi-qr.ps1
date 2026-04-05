@@ -1,5 +1,6 @@
 # wifi-qr.ps1 -- Share Wi-Fi via QR Code
-# 2026-03-11 -- v2.0.0: Added interactive TUI menu for all saved profiles
+# 2026-04-05 -- v2.0.1: Added global error handling
+$ErrorActionPreference = 'Stop'
 
 <#
 .SYNOPSIS
@@ -173,6 +174,11 @@ function Invoke-WiFiQR {
 }
 
 if ($MyInvocation.InvocationName -ne '.') {
-    Invoke-WiFiQR
+    try {
+        Invoke-WiFiQR
+    } catch {
+        Write-Host "`n[ERROR] A critical error occurred in $($MyInvocation.MyCommand.Name):" -ForegroundColor Red
+        Write-Host "Message: $($_.Exception.Message)" -ForegroundColor Red
+        exit 1
+    }
 }
-

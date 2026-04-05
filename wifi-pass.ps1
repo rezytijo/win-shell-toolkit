@@ -1,5 +1,6 @@
 # wifi-pass.ps1 -- Extract saved Wi-Fi passwords
-# 2026-03-11 -- v2.0.0: Added interactive TUI menu
+# 2026-04-05 -- v2.0.1: Added global error handling
+$ErrorActionPreference = 'Stop'
 
 <#
 .SYNOPSIS
@@ -142,6 +143,11 @@ function Invoke-WiFiPass {
 }
 
 if ($MyInvocation.InvocationName -ne '.') {
-    Invoke-WiFiPass
+    try {
+        Invoke-WiFiPass
+    } catch {
+        Write-Host "`n[ERROR] A critical error occurred in $($MyInvocation.MyCommand.Name):" -ForegroundColor Red
+        Write-Host "Message: $($_.Exception.Message)" -ForegroundColor Red
+        exit 1
+    }
 }
-

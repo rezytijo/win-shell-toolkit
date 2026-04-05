@@ -14,9 +14,9 @@ Scripts are registered as PowerShell profile functions via `setup.ps1` for quick
 | Script | Purpose | Dependencies |
 |---|---|---|
 | `setup.ps1` | Installs deps + registers all scripts as PowerShell profile commands | None |
-| `update.ps1` | System update (winget + Windows Update) with pin-based exclusions | `winget`, `PSWindowsUpdate` module |
+| `update.ps1` | System update (winget default, Windows Update optional, NPM/Python support) | `winget`, `PSWindowsUpdate` module, `npm`, `python` |
 | `update.bat` | Batch wrapper for `update.ps1` | PowerShell 5.1+ |
-| `ExportToPdf.ps1` | Converts Office docs to PDF via "Microsoft Print to PDF" | Windows Print to PDF feature |
+| `ExportToPdf.ps1` | Converts documents to PDF via Office COM (silent) or PrintTo fallback | MS Office (Optional, for silent export) |
 | `export-to-pdf.bat` | Batch wrapper for `ExportToPdf.ps1` | PowerShell 5.1+ |
 | `check-host.ps1` | IP/Domain intelligence lookup via ip-api.com JSON API | PowerShell (Invoke-RestMethod) |
 | `myip.ps1` | Shows public IP + private network info (interface, SSID, signal, tunnel detection) | PowerShell (Invoke-RestMethod, Get-NetAdapter) |
@@ -114,6 +114,11 @@ Scripts are registered as PowerShell profile functions via `setup.ps1` for quick
 - `Tonec.InternetDownloadManager`
 
 ## Changelog
+- **05 April 2026 10:15** -- Mass Standardization of Error Handling: Applied `$ErrorActionPreference = 'Stop'` and global `try/catch` wrappers across all 49+ scripts in the arsenal (Batches 1-4). This ensures that failures are caught gracefully, providing color-coded feedback and proper exit codes (`exit 1`) for pipeline stability. Every script now follows a unified, robust execution pattern.
+- **05 April 2026 09:02** -- `ExportToPdf.ps1` v2.0.1: Added graceful error handling for missing Office COM automation (MS Office not installed). The script now automatically detects if Word/Excel/PPT is missing and switches to the 'PrintTo' fallback instead of failing, accompanied by clear user warnings.
+- **2026-04-05 08:52** -- `ExportToPdf.ps1` v2.0.0: Complete overhaul. Switched to Microsoft Office COM Automation for silent, reliable exports. Added support for wildcards (e.g. `*.docx`), pipeline input, and a `PrintTo` fallback for non-Office files. Total overhaul of the UI with colored status and progress tracking.
+- **2026-04-05 08:35** -- `update.ps1` v2.0.4: Integrated Dev environment updates. Added support for NPM (self-update + global packages) and Python (pip upgrade). New targets: `npm`, `python`, and `dev` (both). `update all` now includes development runtimes.
+- **2026-04-05 08:30** -- `update.ps1` v2.0.3: Made Windows Updates optional. By default, only Winget applications are updated. Use `update windows` to trigger OS updates or `update all` for both. This prevents unexpected reboots during standard maintenance.
 - **2026-03-11 08:15** -- Added `cmds.ps1` to act as an active dictionary. It parses the `Context.md` file dynamically and projects the definitions neatly directly in the terminal so users don't need to manually read documents to remember their tools. Total Alias Commands: 49.
 - **2026-03-11 08:10** -- Added `nano.ps1` as a pseudo-Linux editor wrapper. It immediately calculates absolute paths and opens the targeted file inside a UAC-elevated Notepad instance, making root/admin edits in `Program Files` or `System32` entirely seamless directly from a standard user terminal. Total Alias Commands: 48.
 - **2026-03-11 08:05** -- Ultimate UI/UX Core utilities: `ll`, `trash`, `whereis`, `grep`, and `tail` have been created to replace verbose Windows typing standards and bring true Linux productivity directly to standard PS arrays. The alias count sits perfectly at 47 robust commands.

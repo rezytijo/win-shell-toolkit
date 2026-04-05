@@ -1,5 +1,6 @@
 # uptime.ps1 -- Linux `uptime` equivalent for Windows
-# 2026-03-11 -- v1.0.0: Initial version
+# 2026-04-05 -- v1.0.1: Added global error handling
+$ErrorActionPreference = 'Stop'
 
 <#
 .SYNOPSIS
@@ -29,8 +30,11 @@ function Invoke-Uptime {
     $usersCount = 1
     try {
         # Check active RDP/Local sessions via quser
-        $quserLines = (quser 2>$null | Measure-Object -Line).Lines
-        if ($quserLines -gt 1) { $usersCount = $quserLines - 1 }
+        $quserResult = quser 2>$null
+        if ($quserResult) {
+            $quserLines = ($quserResult | Measure-Object -Line).Lines
+            if ($quserLines -gt 1) { $usersCount = $quserLines - 1 }
+        }
     } catch {}
     
     Write-Host ""
@@ -39,6 +43,11 @@ function Invoke-Uptime {
 }
 
 if ($MyInvocation.InvocationName -ne '.') {
-    Invoke-Uptime
+    try {
+        Invoke-Uptime
+    } catch {
+        Write-Host "`n[ERROR] A critical error occurred in $($MyInvocation.MyCommand.Name):" -ForegroundColor Red
+        Write-Host "Message: $($_.Exception.Message)" -ForegroundColor Red
+        exit 1
+    }
 }
-

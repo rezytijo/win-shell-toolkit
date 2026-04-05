@@ -1,5 +1,6 @@
 # pwdc.ps1 -- Print Working Directory and Copy to Clipboard
-# 2026-03-16 -- v1.0.0: Initial version
+# 2026-04-05 -- v1.0.1: Added global error handling
+$ErrorActionPreference = 'Stop'
 
 <#
 .SYNOPSIS
@@ -13,11 +14,23 @@
     pwdc
 #>
 
-$currentPath = (Get-Location).Path
-$currentPath | Set-Clipboard
+function Invoke-Pwdc {
+    $currentPath = (Get-Location).Path
+    $currentPath | Set-Clipboard
 
-Write-Host ""
-Write-Host "  [PWD Copy]" -ForegroundColor Cyan
-Write-Host "  Path   : " -NoNewline; Write-Host $currentPath -ForegroundColor Green
-Write-Host "  Status : Copied to clipboard! 📋" -ForegroundColor Yellow
-Write-Host ""
+    Write-Host ""
+    Write-Host "  [PWD Copy]" -ForegroundColor Cyan
+    Write-Host "  Path   : " -NoNewline; Write-Host $currentPath -ForegroundColor Green
+    Write-Host "  Status : Copied to clipboard! 📋" -ForegroundColor Yellow
+    Write-Host ""
+}
+
+if ($MyInvocation.InvocationName -ne '.') {
+    try {
+        Invoke-Pwdc
+    } catch {
+        Write-Host "`n[ERROR] A critical error occurred in $($MyInvocation.MyCommand.Name):" -ForegroundColor Red
+        Write-Host "Message: $($_.Exception.Message)" -ForegroundColor Red
+        exit 1
+    }
+}

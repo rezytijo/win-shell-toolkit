@@ -1,5 +1,6 @@
 # myip.ps1 -- Shows public and private IP/network information
-# 2026-03-11 -- v2.0.0: Full rewrite as .ps1, added private network info, tunnel/VPN detection
+# 2026-04-05 -- v2.0.1: Added global error handling
+$ErrorActionPreference = 'Stop'
 
 <#
 .SYNOPSIS
@@ -182,6 +183,11 @@ function Show-MyIP {
 
 # Run if executed directly (not dot-sourced)
 if ($MyInvocation.InvocationName -ne '.') {
-    Show-MyIP
+    try {
+        Show-MyIP
+    } catch {
+        Write-Host "`n[ERROR] A critical error occurred in $($MyInvocation.MyCommand.Name):" -ForegroundColor Red
+        Write-Host "Message: $($_.Exception.Message)" -ForegroundColor Red
+        exit 1
+    }
 }
-

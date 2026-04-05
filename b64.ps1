@@ -1,5 +1,6 @@
 # b64.ps1 -- Base64 Encoder/Decoder
-# 2026-03-11 -- v1.0.0: Initial version
+# 2026-04-05 -- v1.0.1: Added global error handling
+$ErrorActionPreference = 'Stop'
 
 <#
 .SYNOPSIS
@@ -73,6 +74,11 @@ function Invoke-Base64 {
 }
 
 if ($MyInvocation.InvocationName -ne '.') {
-    Invoke-Base64
+    try {
+        Invoke-Base64
+    } catch {
+        Write-Host "`n[ERROR] A critical error occurred in $($MyInvocation.MyCommand.Name):" -ForegroundColor Red
+        Write-Host "Message: $($_.Exception.Message)" -ForegroundColor Red
+        exit 1
+    }
 }
-

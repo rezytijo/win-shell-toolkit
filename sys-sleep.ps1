@@ -1,5 +1,6 @@
 # sys-sleep.ps1 -- Put computer into Sleep / Standby
-# 2026-03-11 -- v1.0.0: Initial version
+# 2026-04-05 -- v1.0.1: Added global error handling
+$ErrorActionPreference = 'Stop'
 
 <#
 .SYNOPSIS
@@ -26,6 +27,11 @@ function Invoke-SysSleep {
 }
 
 if ($MyInvocation.InvocationName -ne '.') {
-    Invoke-SysSleep
+    try {
+        Invoke-SysSleep
+    } catch {
+        Write-Host "`n[ERROR] A critical error occurred in $($MyInvocation.MyCommand.Name):" -ForegroundColor Red
+        Write-Host "Message: $($_.Exception.Message)" -ForegroundColor Red
+        exit 1
+    }
 }
-

@@ -1,5 +1,6 @@
 # trash.ps1 -- Move items to Windows Recycle Bin instead of permadelete (Linux safe-rm equivalent)
-# 2026-03-11 -- v1.0.0: Initial version
+# 2026-04-05 -- v1.0.1: Added global error handling
+$ErrorActionPreference = 'Stop'
 
 <#
 .SYNOPSIS
@@ -56,11 +57,15 @@ function Invoke-Trash {
 }
 
 if ($MyInvocation.InvocationName -ne '.') {
-    if ($args.Count -gt 0) {
-        Invoke-Trash -Path $args
-    } else {
-        Write-Host "Usage: trash <file1> [file2] [*.ext]" -ForegroundColor Yellow
+    try {
+        if ($args.Count -gt 0) {
+            Invoke-Trash -Path $args
+        } else {
+            Write-Host "Usage: trash <file1> [file2] [*.ext]" -ForegroundColor Yellow
+        }
+    } catch {
+        Write-Host "`n[ERROR] A critical error occurred in $($MyInvocation.MyCommand.Name):" -ForegroundColor Red
+        Write-Host "Message: $($_.Exception.Message)" -ForegroundColor Red
+        exit 1
     }
 }
-
-

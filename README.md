@@ -68,7 +68,7 @@ The goal is simple: fewer repetitive keystrokes, less hunting through GUI settin
 
 | Command | Description |
 | :--- | :--- |
-| `update` | System update with `winget` and Windows Update integration |
+| `update` | System update (Winget default, Windows Update, NPM, Python) |
 | `clean-system` | Cleans temp folders, Recycle Bin, and Windows Update cache |
 | `sysinfo` | Quick hardware, OS, and resource summary |
 | `top-proc` | Top CPU and RAM consumers in the terminal |
@@ -113,7 +113,7 @@ The goal is simple: fewer repetitive keystrokes, less hunting through GUI settin
 | `zip` | Compress folders into `.zip` archives |
 | `unzip` | Extract `.zip` archives |
 | `trash` | Send files to Recycle Bin instead of permanently deleting |
-| `ExportToPdf` | Convert Office documents using Microsoft Print to PDF |
+| `ExportToPdf` | Silent PDF conversion using Office COM or PrintTo fallback |
 
 ### Terminal and Productivity
 
@@ -197,6 +197,12 @@ CustomScripts/
 ```powershell
 .\setup.ps1 -Install
 cmds
+update          # Update Winget apps
+update windows  # Update Windows OS
+update npm      # Update NPM core + global packages
+update python   # Upgrade pip
+update dev      # Update NPM and Python
+update all      # Update Everything
 ll
 mkproj my-app
 serve

@@ -1,5 +1,6 @@
 # mkproj.ps1 -- Modern Project Initializer
-# 2026-03-16 -- v1.0.0: Initial version
+# 2026-04-05 -- v1.0.1: Added global error handling
+$ErrorActionPreference = 'Stop'
 
 <#
 .SYNOPSIS
@@ -54,170 +55,183 @@ function Show-Help {
     exit
 }
 
-if ($Help) { Show-Help }
+function Invoke-Mkproj {
+    if ($Help) { Show-Help }
 
-if (-not $ProjectName) {
-    Show-Header
-    $ProjectName = Read-Host "  [?] Project Name"
-}
+    $localProjectName = $ProjectName # Use local variable to avoid param collision if needed
+    if (-not $localProjectName) {
+        Show-Header
+        $localProjectName = Read-Host "  [?] Project Name"
+    }
 
-if (-not $ProjectName) { Write-Host "  [!] Project name is required." -ForegroundColor Red; exit }
+    if (-not $localProjectName) { Write-Host "  [!] Project name is required." -ForegroundColor Red; exit }
 
-$targetPath = Join-Path (Get-Location) $ProjectName
+    $targetPath = Join-Path (Get-Location) $localProjectName
 
-if (Test-Path $targetPath) {
-    Write-Host "  [!] Directory '$ProjectName' already exists." -ForegroundColor Red
-    exit
-}
+    if (Test-Path $targetPath) {
+        Write-Host "  [!] Directory '$localProjectName' already exists." -ForegroundColor Red
+        exit
+    }
 
-# --- TEMPLATE SELECTION ---
-$templates = @(
-    "Node.js (npm)",
-    "Python (venv)",
-    "Go (mod)",
-    "Rust (cargo)",
-    "React (Vite + TS)",
-    "Web (HTML/CSS/JS)",
-    "AI Agent (.agent framework)",
-    "Empty (Git only)"
-)
-
-Write-Host "  Available Templates:" -ForegroundColor Yellow
-for ($i=0; $i -lt $templates.Count; $i++) {
-    Write-Host "  [$($i+1)] $($templates[$i])"
-}
-
-$choice = Read-Host "`n  [?] Select Template (1-$($templates.Count))"
-$template = $templates[[int]$choice - 1]
-
-if (-not $template) { Write-Host "  [!] Invalid selection." -ForegroundColor Red; exit }
-
-# --- INITIALIZATION ---
-Write-Host "`n  [1/3] Creating directory structure..." -ForegroundColor Cyan
-New-Item -ItemType Directory -Path $targetPath -Force | Out-Null
-Set-Location -Path $targetPath
-
-# Function to create standardized ignore files
-function Create-IgnoreFiles ($type) {
-    $commonPatterns = @(
-        "# System Files",
-        ".DS_Store", "Thumbs.db", "desktop.ini",
-        "",
-        "# IDEs",
-        ".vscode/", ".idea/", "*.swp", "*.swo",
-        "",
-        "# Temporary & Cache",
-        "*debug*", "*test*", "*.log", "*.tmp", "*.bak", "*.db", "*.json", "*.csv",
-        "",
-        "# Environment",
-        ".env", ".env.local", ".env.*.local",
-        "",
-        "# AI Agent System",
-        ".agent/brain/", ".agent/logs/", ".agent/temp/", ".codex/sessions/", ".codex/history.jsonl"
+    # --- TEMPLATE SELECTION ---
+    $templates = @(
+        "Node.js (npm)",
+        "Python (venv)",
+        "Go (mod)",
+        "Rust (cargo)",
+        "React (Vite + TS)",
+        "Web (HTML/CSS/JS)",
+        "AI Agent (.agent framework)",
+        "Empty (Git only)"
     )
 
-    $langPatterns = switch ($type) {
-        "Node"   { @("# Dependencies", "node_modules/", "dist/", "build/", "npm-debug.log*") }
-        "Python" { @("# Python", "__pycache__/", "*.py[cod]", "venv/", ".venv/", "env/", "build/", "dist/") }
-        "Go"     { @("# Go binaries", "bin/", "*.exe", "*.test", "*.prof") }
-        "Rust"   { @("# Rust", "target/", "**/*.rs.bk") }
-        "AI"     { @("# AI Specific", "brain/", "memory/", "*.index", ".google/") }
-        Default  { @() }
+    Write-Host "  Available Templates:" -ForegroundColor Yellow
+    for ($i=0; $i -lt $templates.Count; $i++) {
+        Write-Host "  [$($i+1)] $($templates[$i])"
     }
 
-    $finalContent = ($commonPatterns + $langPatterns) -join "`n"
-    $finalContent | Out-File -FilePath ".gitignore" -Encoding utf8
-    $finalContent | Out-File -FilePath ".dockerignore" -Encoding utf8
-}
+    $choice = Read-Host "`n  [?] Select Template (1-$($templates.Count))"
+    $template = $templates[[int]$choice - 1]
 
-# Base files
-$readme = "# $ProjectName`n`nGenerated using CustomScripts `mkproj` on $(Get-Date -Format 'yyyy-MM-dd')."
-$readme | Out-File -FilePath "README.md" -Encoding utf8
+    if (-not $template) { Write-Host "  [!] Invalid selection." -ForegroundColor Red; exit }
 
-Write-Host "  [2/3] Setting up $template boilerplate..." -ForegroundColor Cyan
+    # --- INITIALIZATION ---
+    Write-Host "`n  [1/3] Creating directory structure..." -ForegroundColor Cyan
+    New-Item -ItemType Directory -Path $targetPath -Force | Out-Null
+    Set-Location -Path $targetPath
 
-switch ($choice) {
-    "1" { # Node.js
-        npm init -y | Out-Null
-        New-Item -ItemType Directory -Path "src" | Out-Null
-        "'use strict';`n`nconsole.log('Hello from $ProjectName!');" | Out-File -FilePath "src/index.js" -Encoding utf8
-        Create-IgnoreFiles "Node"
-    }
-    "2" { # Python
-        python -m venv venv
-        New-Item -ItemType Directory -Path "src" | Out-Null
-        "def main():`n    print('Hello from $ProjectName!')`n`nif __name__ == '__main__':`n    main()" | Out-File -FilePath "src/main.py" -Encoding utf8
-        Create-IgnoreFiles "Python"
-    }
-    "3" { # Go
-        go mod init $ProjectName.ToLower() | Out-Null
-        "package main`n`nimport `"fmt`"`n`nfunc main() {`n    fmt.Println(`"Hello from $ProjectName!`")`n}" | Out-File -FilePath "main.go" -Encoding utf8
-        Create-IgnoreFiles "Go"
-    }
-    "4" { # Rust
-        if (Get-Command cargo -ErrorAction SilentlyContinue) {
-            cargo init . | Out-Null
-        } else {
-            New-Item -ItemType Directory -Path "src" | Out-Null
-            "fn main() {`n    println!(`"Hello from $ProjectName!`");`n}" | Out-File -FilePath "src/main.rs" -Encoding utf8
+    # Function to create standardized ignore files
+    function New-IgnoreFiles ($type) {
+        $commonPatterns = @(
+            "# System Files",
+            ".DS_Store", "Thumbs.db", "desktop.ini",
+            "",
+            "# IDEs",
+            ".vscode/", ".idea/", "*.swp", "*.swo",
+            "",
+            "# Temporary & Cache",
+            "*debug*", "*test*", "*.log", "*.tmp", "*.bak", "*.db", "*.json", "*.csv",
+            "",
+            "# Environment",
+            ".env", ".env.local", ".env.*.local",
+            "",
+            "# AI Agent System",
+            ".agent/brain/", ".agent/logs/", ".agent/temp/", ".codex/sessions/", ".codex/history.jsonl"
+        )
+
+        $langPatterns = switch ($type) {
+            "Node"   { @("# Dependencies", "node_modules/", "dist/", "build/", "npm-debug.log*") }
+            "Python" { @("# Python", "__pycache__/", "*.py[cod]", "venv/", ".venv/", "env/", "build/", "dist/") }
+            "Go"     { @("# Go binaries", "bin/", "*.exe", "*.test", "*.prof") }
+            "Rust"   { @("# Rust", "target/", "**/*.rs.bk") }
+            "AI"     { @("# AI Specific", "brain/", "memory/", "*.index", ".google/") }
+            Default  { @() }
         }
-        Create-IgnoreFiles "Rust"
+
+        $finalContent = ($commonPatterns + $langPatterns) -join "`n"
+        $finalContent | Out-File -FilePath ".gitignore" -Encoding utf8
+        $finalContent | Out-File -FilePath ".dockerignore" -Encoding utf8
     }
-    "5" { # React (Vite)
-        npm create vite@latest . -- --template react-ts
-        Create-IgnoreFiles "Node"
+
+    # Base files
+    $readme = "# $localProjectName`n`nGenerated using CustomScripts `mkproj` on $(Get-Date -Format 'yyyy-MM-dd')."
+    $readme | Out-File -FilePath "README.md" -Encoding utf8
+
+    Write-Host "  [2/3] Setting up $template boilerplate..." -ForegroundColor Cyan
+
+    switch ($choice) {
+        "1" { # Node.js
+            npm init -y | Out-Null
+            New-Item -ItemType Directory -Path "src" | Out-Null
+            "'use strict';`n`nconsole.log('Hello from $localProjectName!');" | Out-File -FilePath "src/index.js" -Encoding utf8
+            New-IgnoreFiles "Node"
+        }
+        "2" { # Python
+            python -m venv venv
+            New-Item -ItemType Directory -Path "src" | Out-Null
+            "def main():`n    print('Hello from $localProjectName!')`n`nif __name__ == '__main__':`n    main()" | Out-File -FilePath "src/main.py" -Encoding utf8
+            New-IgnoreFiles "Python"
+        }
+        "3" { # Go
+            go mod init $localProjectName.ToLower() | Out-Null
+            "package main`n`nimport `"fmt`"`n`nfunc main() {`n    fmt.Println(`"Hello from $localProjectName!`")`n}" | Out-File -FilePath "main.go" -Encoding utf8
+            New-IgnoreFiles "Go"
+        }
+        "4" { # Rust
+            if (Get-Command cargo -ErrorAction SilentlyContinue) {
+                cargo init . | Out-Null
+            } else {
+                New-Item -ItemType Directory -Path "src" | Out-Null
+                "fn main() {`n    println!(`"Hello from $localProjectName!`");`n}" | Out-File -FilePath "src/main.rs" -Encoding utf8
+            }
+            New-IgnoreFiles "Rust"
+        }
+        "5" { # React (Vite)
+            npm create vite@latest . -- --template react-ts
+            New-IgnoreFiles "Node"
+        }
+        "6" { # Web Vanilla
+            New-Item -ItemType Directory -Path "css", "js", "assets" | Out-Null
+            "<!DOCTYPE html>`n<html>`n<head>`n    <title>$localProjectName</title>`n    <link rel='stylesheet' href='css/style.css'>`n</head>`n<body>`n    <h1>Welcome to $localProjectName</h1>`n    <script src='js/main.js'></script>`n</body>`n</html>" | Out-File -FilePath "index.html" -Encoding utf8
+            "body { font-family: sans-serif; }" | Out-File -FilePath "css/style.css" -Encoding utf8
+            "console.log('Web project loaded');" | Out-File -FilePath "js/main.js" -Encoding utf8
+            New-IgnoreFiles "Empty"
+        }
+        "7" { # AI Agent & Ecosystem
+            Write-Host "  [+] Creating Multi-Agent ecosystem structure..." -ForegroundColor Yellow
+            
+            # 1. General .agent structure (Memory, Knowledge)
+            New-Item -ItemType Directory -Path ".agent/skills", ".agent/workflows", ".agent/rules", ".agent/brain", ".agent/logs" | Out-Null
+            "# AI Agent Logic`n`n- Focus: Project Automation`n- Style: Professional" | Out-File -FilePath ".agent/rules/global.md" -Encoding utf8
+            
+            # 2. Cursor AI (.cursor/rules)
+            New-Item -ItemType Directory -Path ".cursor/rules" | Out-Null
+            "# Project Rules`n`n- Use TypeScript`n- Follow Clean Architecture" | Out-File -FilePath ".cursor/rules/project.mdc" -Encoding utf8
+            
+            # 3. Windsurf (instructions.md)
+            "# Windsurf Instructions`n`nDescribe your feature roadmap and tech stack here." | Out-File -FilePath "instructions.md" -Encoding utf8
+            
+            # 4. Claude/Anthropic (CLAUDE.md)
+            "# CLAUDE.md`n`n- Build: npm run build`n- Test: npm test`n- Style: Functional" | Out-File -FilePath "CLAUDE.md" -Encoding utf8
+            
+            # 5. GitHub Copilot (.github/copilot-instructions.md)
+            New-Item -ItemType Directory -Path ".github" | Out-Null
+            "# Copilot Instructions`n`n- Preferred Library: React/Query`n- Documentation: JSDoc" | Out-File -FilePath ".github/copilot-instructions.md" -Encoding utf8
+            
+            # 6. Gemini AI (GEMINI.md)
+            "# GEMINI.md`n`nProvide project goals and architectural guidelines for Gemini here." | Out-File -FilePath "GEMINI.md" -Encoding utf8
+            
+            # 7. Codex (.codex/)
+            New-Item -ItemType Directory -Path ".codex" | Out-Null
+            "[project]`nname = `"$localProjectName`"`ndescription = `"AI-First Project`"" | Out-File -FilePath ".codex/config.toml" -Encoding utf8
+            
+            # 8. General Agentic Files
+            "# AGENTS.md`n`nOverview of all AI agents in this project." | Out-File -FilePath "AGENTS.md" -Encoding utf8
+            
+            New-IgnoreFiles "AI"
+        }
+        Default {
+            New-IgnoreFiles "Empty"
+        }
     }
-    "6" { # Web Vanilla
-        New-Item -ItemType Directory -Path "css", "js", "assets" | Out-Null
-        "<!DOCTYPE html>`n<html>`n<head>`n    <title>$ProjectName</title>`n    <link rel='stylesheet' href='css/style.css'>`n</head>`n<body>`n    <h1>Welcome to $ProjectName</h1>`n    <script src='js/main.js'></script>`n</body>`n</html>" | Out-File -FilePath "index.html" -Encoding utf8
-        "body { font-family: sans-serif; }" | Out-File -FilePath "css/style.css" -Encoding utf8
-        "console.log('Web project loaded');" | Out-File -FilePath "js/main.js" -Encoding utf8
-        Create-IgnoreFiles "Empty"
-    }
-    "7" { # AI Agent & Ecosystem
-        Write-Host "  [+] Creating Multi-Agent ecosystem structure..." -ForegroundColor Yellow
-        
-        # 1. General .agent structure (Memory, Knowledge)
-        New-Item -ItemType Directory -Path ".agent/skills", ".agent/workflows", ".agent/rules", ".agent/brain", ".agent/logs" | Out-Null
-        "# AI Agent Logic`n`n- Focus: Project Automation`n- Style: Professional" | Out-File -FilePath ".agent/rules/global.md" -Encoding utf8
-        
-        # 2. Cursor AI (.cursor/rules)
-        New-Item -ItemType Directory -Path ".cursor/rules" | Out-Null
-        "# Project Rules`n`n- Use TypeScript`n- Follow Clean Architecture" | Out-File -FilePath ".cursor/rules/project.mdc" -Encoding utf8
-        
-        # 3. Windsurf (instructions.md)
-        "# Windsurf Instructions`n`nDescribe your feature roadmap and tech stack here." | Out-File -FilePath "instructions.md" -Encoding utf8
-        
-        # 4. Claude/Anthropic (CLAUDE.md)
-        "# CLAUDE.md`n`n- Build: npm run build`n- Test: npm test`n- Style: Functional" | Out-File -FilePath "CLAUDE.md" -Encoding utf8
-        
-        # 5. GitHub Copilot (.github/copilot-instructions.md)
-        New-Item -ItemType Directory -Path ".github" | Out-Null
-        "# Copilot Instructions`n`n- Preferred Library: React/Query`n- Documentation: JSDoc" | Out-File -FilePath ".github/copilot-instructions.md" -Encoding utf8
-        
-        # 6. Gemini AI (GEMINI.md)
-        "# GEMINI.md`n`nProvide project goals and architectural guidelines for Gemini here." | Out-File -FilePath "GEMINI.md" -Encoding utf8
-        
-        # 7. Codex (.codex/)
-        New-Item -ItemType Directory -Path ".codex" | Out-Null
-        "[project]`nname = `"$ProjectName`"`ndescription = `"AI-First Project`"" | Out-File -FilePath ".codex/config.toml" -Encoding utf8
-        
-        # 8. General Agentic Files
-        "# AGENTS.md`n`nOverview of all AI agents in this project." | Out-File -FilePath "AGENTS.md" -Encoding utf8
-        
-        Create-IgnoreFiles "AI"
-    }
-    Default {
-        Create-IgnoreFiles "Empty"
-    }
+
+    Write-Host "  [3/3] Initializing Git repository..." -ForegroundColor Cyan
+    git init -q
+
+    Write-Host "`n  ========================================" -ForegroundColor Green
+    Write-Host "     ✅ Project '$localProjectName' Ready!" -ForegroundColor White
+    Write-Host "  ========================================" -ForegroundColor Green
+    Write-Host "  Location: $(Get-Location)" -ForegroundColor DarkGray
+    Write-Host "  Template: $template" -ForegroundColor DarkGray
+    Write-Host ""
 }
 
-Write-Host "  [3/3] Initializing Git repository..." -ForegroundColor Cyan
-git init -q
-
-Write-Host "`n  ========================================" -ForegroundColor Green
-Write-Host "     ✅ Project '$ProjectName' Ready!" -ForegroundColor White
-Write-Host "  ========================================" -ForegroundColor Green
-Write-Host "  Location: $(Get-Location)" -ForegroundColor DarkGray
-Write-Host "  Template: $template" -ForegroundColor DarkGray
-Write-Host ""
+if ($MyInvocation.InvocationName -ne '.') {
+    try {
+        Invoke-Mkproj
+    } catch {
+        Write-Host "`n[ERROR] A critical error occurred in $($MyInvocation.MyCommand.Name):" -ForegroundColor Red
+        Write-Host "Message: $($_.Exception.Message)" -ForegroundColor Red
+        exit 1
+    }
+}
