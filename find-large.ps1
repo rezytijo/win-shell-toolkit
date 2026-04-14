@@ -1,7 +1,5 @@
 # find-large.ps1 -- Find large files taking up disk space
-# 2026-04-05 -- v1.0.1: Added global error handling
-$ErrorActionPreference = 'Stop'
-
+# 2026-04-14 -- v1.0.2: Fixed param block positioning
 <#
 .SYNOPSIS
 Storage analyzer to locate largest files in a directory
@@ -27,6 +25,8 @@ param(
     [int]$Top = 15,
     [string]$MinSize = "500MB"
 )
+
+$ErrorActionPreference = 'Stop'
 
 function Invoke-FindLargeFiles {
     $separator = "=========================================="

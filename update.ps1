@@ -1,12 +1,13 @@
 # update.ps1 -- Automated system update script (winget + Windows Update + Dev environments)
 # 2026-04-05 -- v2.0.5: Added global error handling
-$ErrorActionPreference = 'Stop'
 
 param(
     [Parameter(Position = 0)]
     [ValidateSet("apps", "windows", "npm", "python", "dev", "all")]
     [string]$Target = "apps"
 )
+
+$ErrorActionPreference = 'Stop'
 
 function Update-System {
     param(

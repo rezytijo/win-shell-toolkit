@@ -1,6 +1,6 @@
 # checksum.ps1 -- File Hash Calculator
 # 2026-04-05 -- v1.0.1: Added global error handling
-$ErrorActionPreference = 'Stop'
+
 
 <#
 .SYNOPSIS
@@ -20,6 +20,8 @@ param(
     [Parameter(Mandatory=$true, Position=0, HelpMessage="Path to the file to calculate hashes for")]
     [string]$Path
 )
+
+$ErrorActionPreference = 'Stop'
 
 function Invoke-Checksum {
     # Validate file exists

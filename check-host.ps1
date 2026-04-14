@@ -1,6 +1,6 @@
 # check-host.ps1 -- IP/Domain intelligence lookup
 # 2026-04-05 -- v3.0.1: Added global error handling
-$ErrorActionPreference = 'Stop'
+
 
 <#
 .SYNOPSIS
@@ -21,6 +21,8 @@ param(
     [Parameter(Mandatory=$true, Position=0, ValueFromPipeline=$true, ValueFromRemainingArguments=$true, HelpMessage="Target IP, Domain, or path to a file (.txt, .csv)")]
     [string[]]$Target
 )
+
+$ErrorActionPreference = 'Stop'
 
 function Invoke-CheckHost {
     begin {

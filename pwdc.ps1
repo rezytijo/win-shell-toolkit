@@ -21,7 +21,7 @@ function Invoke-Pwdc {
     Write-Host ""
     Write-Host "  [PWD Copy]" -ForegroundColor Cyan
     Write-Host "  Path   : " -NoNewline; Write-Host $currentPath -ForegroundColor Green
-    Write-Host "  Status : Copied to clipboard! 📋" -ForegroundColor Yellow
+    Write-Host "  Status : Copied to clipboard! $([char]::ConvertFromUtf32(0x1F4CB))" -ForegroundColor Yellow
     Write-Host ""
 }
 

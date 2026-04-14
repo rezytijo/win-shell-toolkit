@@ -25,7 +25,7 @@ function Invoke-Uptime {
     
     $hours = $uptime.Hours.ToString().PadLeft(2, '0')
     $mins = $uptime.Minutes.ToString().PadLeft(2, '0')
-    $upString += "$hours:$mins"
+    $upString += "$($hours):$($mins)"
     
     $usersCount = 1
     try {

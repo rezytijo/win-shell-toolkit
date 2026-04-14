@@ -306,11 +306,17 @@ function Sync-Aliases {
     $aliases = Get-ScriptAliases
     Remove-Aliases
 
+    # Cleanup path for profile (use $env:USERPROFILE for portability)
+    $profileDirVar = $ScriptDir
+    if ($profileDirVar -like "$env:USERPROFILE*") {
+        $profileDirVar = '$env:USERPROFILE' + $profileDirVar.Substring($env:USERPROFILE.Length)
+    }
+
     $setupBlock = @"
 
 # === CustomScripts Auto-Setup ===
 # Generated: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
-`$CustomScriptsDir = `"$ScriptDir`"
+`$CustomScriptsDir = "$profileDirVar"
 "@
 
     foreach ($alias in $aliases) {

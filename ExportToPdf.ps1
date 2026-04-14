@@ -1,7 +1,7 @@
 #Requires -Version 5.1
 # ExportToPdf.ps1 -- Automated PDF conversion utility
 # 2026-04-05 -- v2.0.2: Added global error handling
-$ErrorActionPreference = 'Stop'
+
 
 <#
 .SYNOPSIS
@@ -32,6 +32,8 @@ param (
 
     [switch]$Help
 )
+
+$ErrorActionPreference = 'Stop'
 
 function Show-Usage {
     Write-Host "`nExportToPdf Utility v2.0.2" -ForegroundColor Cyan

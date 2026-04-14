@@ -1,7 +1,5 @@
 # weather.ps1 -- Terminal Weather via wttr.in
-# 2026-04-05 -- v1.2.1: Added global error handling
-$ErrorActionPreference = 'Stop'
-
+# 2026-04-14 -- v1.2.2: Fixed param block position
 <#
 .SYNOPSIS
 Terminal weather using Windows Location Services (or IP/Manual fallback)
@@ -25,6 +23,8 @@ param(
     
     [switch]$Update
 )
+
+$ErrorActionPreference = 'Stop'
 
 function Invoke-Weather {
     $configFile = "$env:USERPROFILE\.weather_location"

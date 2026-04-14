@@ -1,7 +1,5 @@
 # top-proc.ps1 -- Task Manager in Terminal
-# 2026-04-05 -- v1.0.1: Added global error handling
-$ErrorActionPreference = 'Stop'
-
+# 2026-04-14 -- v1.0.2: Fixed param block positioning
 <#
 .SYNOPSIS
 A terminal task manager sorting the Top 15 RAM/CPU apps
@@ -27,6 +25,8 @@ param(
     [Parameter(Position=1, HelpMessage="Number of processes to show")]
     [int]$Top = 15
 )
+
+$ErrorActionPreference = 'Stop'
 
 function Invoke-TopProc {
     $separator = "==========================================================="

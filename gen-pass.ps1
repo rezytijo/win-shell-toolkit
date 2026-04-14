@@ -1,7 +1,5 @@
 # gen-pass.ps1 -- Password Generator
-# 2026-04-05 -- v1.0.1: Added global error handling
-$ErrorActionPreference = 'Stop'
-
+# 2026-04-13 -- v1.0.2: Fixed param block position and scoping
 <#
 .SYNOPSIS
 Generates secure random passwords and copies to clipboard
@@ -10,21 +8,27 @@ Generates secure random passwords and copies to clipboard
 This script is part of the CustomScripts arsenal.
 
 .PARAMETER Length
-    Specifies the Length parameter.
+    Specifies the Length of the password. Default is 16.
 
 .PARAMETER NoSymbols
-    Specifies the NoSymbols parameter.
+    If specified, symbols will be excluded from the password.
 
 .EXAMPLE
-    gen-pass
+    .\gen-pass.ps1 -Length 24
 #>
-
 param(
     [int]$Length = 16,
     [switch]$NoSymbols
 )
 
+$ErrorActionPreference = 'Stop'
+
+
 function Invoke-GenPass {
+    param(
+        [int]$Length,
+        [switch]$NoSymbols
+    )
     $separator = "=========================================="
     Write-Host ""
     Write-Host $separator -ForegroundColor DarkGray
@@ -81,7 +85,7 @@ function Invoke-GenPass {
 
 if ($MyInvocation.InvocationName -ne '.') {
     try {
-        Invoke-GenPass
+        Invoke-GenPass -Length $Length -NoSymbols:$NoSymbols
     } catch {
         Write-Host "`n[ERROR] A critical error occurred in $($MyInvocation.MyCommand.Name):" -ForegroundColor Red
         Write-Host "Message: $($_.Exception.Message)" -ForegroundColor Red
