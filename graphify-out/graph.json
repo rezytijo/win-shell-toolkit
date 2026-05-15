@@ -1,0 +1,3220 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "b64.ps1",
+      "file_type": "code",
+      "source_file": "b64.ps1",
+      "source_location": "L1",
+      "id": "b64_ps1",
+      "community": 51,
+      "norm_label": "b64.ps1"
+    },
+    {
+      "label": "check-host.ps1",
+      "file_type": "code",
+      "source_file": "check-host.ps1",
+      "source_location": "L1",
+      "id": "check_host_ps1",
+      "community": 11,
+      "norm_label": "check-host.ps1"
+    },
+    {
+      "label": "Invoke-CheckHost()",
+      "file_type": "code",
+      "source_file": "check-host.ps1",
+      "source_location": "L27",
+      "id": "customscripts_check_host_invoke_checkhost",
+      "community": 11,
+      "norm_label": "invoke-checkhost()"
+    },
+    {
+      "label": "checksum.ps1",
+      "file_type": "code",
+      "source_file": "checksum.ps1",
+      "source_location": "L1",
+      "id": "checksum_ps1",
+      "community": 12,
+      "norm_label": "checksum.ps1"
+    },
+    {
+      "label": "Invoke-Checksum()",
+      "file_type": "code",
+      "source_file": "checksum.ps1",
+      "source_location": "L26",
+      "id": "customscripts_checksum_invoke_checksum",
+      "community": 12,
+      "norm_label": "invoke-checksum()"
+    },
+    {
+      "label": "clean-empty.ps1",
+      "file_type": "code",
+      "source_file": "clean-empty.ps1",
+      "source_location": "L1",
+      "id": "clean_empty_ps1",
+      "community": 52,
+      "norm_label": "clean-empty.ps1"
+    },
+    {
+      "label": "clean-system.ps1",
+      "file_type": "code",
+      "source_file": "clean-system.ps1",
+      "source_location": "L1",
+      "id": "clean_system_ps1",
+      "community": 13,
+      "norm_label": "clean-system.ps1"
+    },
+    {
+      "label": "Invoke-CleanSystem()",
+      "file_type": "code",
+      "source_file": "clean-system.ps1",
+      "source_location": "L17",
+      "id": "customscripts_clean_system_invoke_cleansystem",
+      "community": 13,
+      "norm_label": "invoke-cleansystem()"
+    },
+    {
+      "label": "clean-wifi.ps1",
+      "file_type": "code",
+      "source_file": "clean-wifi.ps1",
+      "source_location": "L1",
+      "id": "clean_wifi_ps1",
+      "community": 8,
+      "norm_label": "clean-wifi.ps1"
+    },
+    {
+      "label": "Show-MultiSelectMenu()",
+      "file_type": "code",
+      "source_file": "clean-wifi.ps1",
+      "source_location": "L25",
+      "id": "customscripts_clean_wifi_show_multiselectmenu",
+      "community": 8,
+      "norm_label": "show-multiselectmenu()"
+    },
+    {
+      "label": "Invoke-CleanWiFi()",
+      "file_type": "code",
+      "source_file": "clean-wifi.ps1",
+      "source_location": "L106",
+      "id": "customscripts_clean_wifi_invoke_cleanwifi",
+      "community": 8,
+      "norm_label": "invoke-cleanwifi()"
+    },
+    {
+      "label": "cmds.ps1",
+      "file_type": "code",
+      "source_file": "cmds.ps1",
+      "source_location": "L1",
+      "id": "cmds_ps1",
+      "community": 14,
+      "norm_label": "cmds.ps1"
+    },
+    {
+      "label": "Invoke-Cmds()",
+      "file_type": "code",
+      "source_file": "cmds.ps1",
+      "source_location": "L16",
+      "id": "customscripts_cmds_invoke_cmds",
+      "community": 14,
+      "norm_label": "invoke-cmds()"
+    },
+    {
+      "label": "copy-path.ps1",
+      "file_type": "code",
+      "source_file": "copy-path.ps1",
+      "source_location": "L1",
+      "id": "copy_path_ps1",
+      "community": 53,
+      "norm_label": "copy-path.ps1"
+    },
+    {
+      "label": "df.ps1",
+      "file_type": "code",
+      "source_file": "df.ps1",
+      "source_location": "L1",
+      "id": "df_ps1",
+      "community": 15,
+      "norm_label": "df.ps1"
+    },
+    {
+      "label": "Invoke-Df()",
+      "file_type": "code",
+      "source_file": "df.ps1",
+      "source_location": "L16",
+      "id": "customscripts_df_invoke_df",
+      "community": 15,
+      "norm_label": "invoke-df()"
+    },
+    {
+      "label": "ExportToPdf.ps1",
+      "file_type": "code",
+      "source_file": "ExportToPdf.ps1",
+      "source_location": "L1",
+      "id": "exporttopdf_ps1",
+      "community": 6,
+      "norm_label": "exporttopdf.ps1"
+    },
+    {
+      "label": "Show-Usage()",
+      "file_type": "code",
+      "source_file": "ExportToPdf.ps1",
+      "source_location": "L38",
+      "id": "customscripts_exporttopdf_show_usage",
+      "community": 6,
+      "norm_label": "show-usage()"
+    },
+    {
+      "label": "Convert-ToPdf()",
+      "file_type": "code",
+      "source_file": "ExportToPdf.ps1",
+      "source_location": "L57",
+      "id": "customscripts_exporttopdf_convert_topdf",
+      "community": 6,
+      "norm_label": "convert-topdf()"
+    },
+    {
+      "label": "Invoke-ExportToPdf()",
+      "file_type": "code",
+      "source_file": "ExportToPdf.ps1",
+      "source_location": "L150",
+      "id": "customscripts_exporttopdf_invoke_exporttopdf",
+      "community": 6,
+      "norm_label": "invoke-exporttopdf()"
+    },
+    {
+      "label": "find-large.ps1",
+      "file_type": "code",
+      "source_file": "find-large.ps1",
+      "source_location": "L1",
+      "id": "find_large_ps1",
+      "community": 16,
+      "norm_label": "find-large.ps1"
+    },
+    {
+      "label": "Invoke-FindLargeFiles()",
+      "file_type": "code",
+      "source_file": "find-large.ps1",
+      "source_location": "L31",
+      "id": "customscripts_find_large_invoke_findlargefiles",
+      "community": 16,
+      "norm_label": "invoke-findlargefiles()"
+    },
+    {
+      "label": "free.ps1",
+      "file_type": "code",
+      "source_file": "free.ps1",
+      "source_location": "L1",
+      "id": "free_ps1",
+      "community": 17,
+      "norm_label": "free.ps1"
+    },
+    {
+      "label": "Invoke-Free()",
+      "file_type": "code",
+      "source_file": "free.ps1",
+      "source_location": "L16",
+      "id": "customscripts_free_invoke_free",
+      "community": 17,
+      "norm_label": "invoke-free()"
+    },
+    {
+      "label": "gen-pass.ps1",
+      "file_type": "code",
+      "source_file": "gen-pass.ps1",
+      "source_location": "L1",
+      "id": "gen_pass_ps1",
+      "community": 18,
+      "norm_label": "gen-pass.ps1"
+    },
+    {
+      "label": "Invoke-GenPass()",
+      "file_type": "code",
+      "source_file": "gen-pass.ps1",
+      "source_location": "L27",
+      "id": "customscripts_gen_pass_invoke_genpass",
+      "community": 18,
+      "norm_label": "invoke-genpass()"
+    },
+    {
+      "label": "grep.ps1",
+      "file_type": "code",
+      "source_file": "grep.ps1",
+      "source_location": "L1",
+      "id": "grep_ps1",
+      "community": 19,
+      "norm_label": "grep.ps1"
+    },
+    {
+      "label": "Invoke-Grep()",
+      "file_type": "code",
+      "source_file": "grep.ps1",
+      "source_location": "L22",
+      "id": "customscripts_grep_invoke_grep",
+      "community": 19,
+      "norm_label": "invoke-grep()"
+    },
+    {
+      "label": "hosts.ps1",
+      "file_type": "code",
+      "source_file": "hosts.ps1",
+      "source_location": "L1",
+      "id": "hosts_ps1",
+      "community": 20,
+      "norm_label": "hosts.ps1"
+    },
+    {
+      "label": "Invoke-Hosts()",
+      "file_type": "code",
+      "source_file": "hosts.ps1",
+      "source_location": "L16",
+      "id": "customscripts_hosts_invoke_hosts",
+      "community": 20,
+      "norm_label": "invoke-hosts()"
+    },
+    {
+      "label": "kill-app.ps1",
+      "file_type": "code",
+      "source_file": "kill-app.ps1",
+      "source_location": "L1",
+      "id": "kill_app_ps1",
+      "community": 21,
+      "norm_label": "kill-app.ps1"
+    },
+    {
+      "label": "Invoke-KillApp()",
+      "file_type": "code",
+      "source_file": "kill-app.ps1",
+      "source_location": "L19",
+      "id": "customscripts_kill_app_invoke_killapp",
+      "community": 21,
+      "norm_label": "invoke-killapp()"
+    },
+    {
+      "label": "kill-port.ps1",
+      "file_type": "code",
+      "source_file": "kill-port.ps1",
+      "source_location": "L1",
+      "id": "kill_port_ps1",
+      "community": 22,
+      "norm_label": "kill-port.ps1"
+    },
+    {
+      "label": "Invoke-KillPort()",
+      "file_type": "code",
+      "source_file": "kill-port.ps1",
+      "source_location": "L29",
+      "id": "customscripts_kill_port_invoke_killport",
+      "community": 22,
+      "norm_label": "invoke-killport()"
+    },
+    {
+      "label": "list-ports.ps1",
+      "file_type": "code",
+      "source_file": "list-ports.ps1",
+      "source_location": "L1",
+      "id": "list_ports_ps1",
+      "community": 23,
+      "norm_label": "list-ports.ps1"
+    },
+    {
+      "label": "Invoke-ListPorts()",
+      "file_type": "code",
+      "source_file": "list-ports.ps1",
+      "source_location": "L16",
+      "id": "customscripts_list_ports_invoke_listports",
+      "community": 23,
+      "norm_label": "invoke-listports()"
+    },
+    {
+      "label": "ll.ps1",
+      "file_type": "code",
+      "source_file": "ll.ps1",
+      "source_location": "L1",
+      "id": "ll_ps1",
+      "community": 24,
+      "norm_label": "ll.ps1"
+    },
+    {
+      "label": "Invoke-LL()",
+      "file_type": "code",
+      "source_file": "ll.ps1",
+      "source_location": "L19",
+      "id": "customscripts_ll_invoke_ll",
+      "community": 24,
+      "norm_label": "invoke-ll()"
+    },
+    {
+      "label": "mkcd.ps1",
+      "file_type": "code",
+      "source_file": "mkcd.ps1",
+      "source_location": "L1",
+      "id": "mkcd_ps1",
+      "community": 54,
+      "norm_label": "mkcd.ps1"
+    },
+    {
+      "label": "mkproj.ps1",
+      "file_type": "code",
+      "source_file": "mkproj.ps1",
+      "source_location": "L1",
+      "id": "mkproj_ps1",
+      "community": 7,
+      "norm_label": "mkproj.ps1"
+    },
+    {
+      "label": "Show-Header()",
+      "file_type": "code",
+      "source_file": "mkproj.ps1",
+      "source_location": "L28",
+      "id": "customscripts_mkproj_show_header",
+      "community": 7,
+      "norm_label": "show-header()"
+    },
+    {
+      "label": "Show-Help()",
+      "file_type": "code",
+      "source_file": "mkproj.ps1",
+      "source_location": "L34",
+      "id": "customscripts_mkproj_show_help",
+      "community": 7,
+      "norm_label": "show-help()"
+    },
+    {
+      "label": "Invoke-Mkproj()",
+      "file_type": "code",
+      "source_file": "mkproj.ps1",
+      "source_location": "L58",
+      "id": "customscripts_mkproj_invoke_mkproj",
+      "community": 7,
+      "norm_label": "invoke-mkproj()"
+    },
+    {
+      "label": "myip.ps1",
+      "file_type": "code",
+      "source_file": "myip.ps1",
+      "source_location": "L1",
+      "id": "myip_ps1",
+      "community": 25,
+      "norm_label": "myip.ps1"
+    },
+    {
+      "label": "Show-MyIP()",
+      "file_type": "code",
+      "source_file": "myip.ps1",
+      "source_location": "L16",
+      "id": "customscripts_myip_show_myip",
+      "community": 25,
+      "norm_label": "show-myip()"
+    },
+    {
+      "label": "nano.ps1",
+      "file_type": "code",
+      "source_file": "nano.ps1",
+      "source_location": "L1",
+      "id": "nano_ps1",
+      "community": 26,
+      "norm_label": "nano.ps1"
+    },
+    {
+      "label": "Invoke-Nano()",
+      "file_type": "code",
+      "source_file": "nano.ps1",
+      "source_location": "L19",
+      "id": "customscripts_nano_invoke_nano",
+      "community": 26,
+      "norm_label": "invoke-nano()"
+    },
+    {
+      "label": "nc.ps1",
+      "file_type": "code",
+      "source_file": "nc.ps1",
+      "source_location": "L1",
+      "id": "nc_ps1",
+      "community": 27,
+      "norm_label": "nc.ps1"
+    },
+    {
+      "label": "Invoke-Nc()",
+      "file_type": "code",
+      "source_file": "nc.ps1",
+      "source_location": "L22",
+      "id": "customscripts_nc_invoke_nc",
+      "community": 27,
+      "norm_label": "invoke-nc()"
+    },
+    {
+      "label": "pwdc.ps1",
+      "file_type": "code",
+      "source_file": "pwdc.ps1",
+      "source_location": "L1",
+      "id": "pwdc_ps1",
+      "community": 28,
+      "norm_label": "pwdc.ps1"
+    },
+    {
+      "label": "Invoke-Pwdc()",
+      "file_type": "code",
+      "source_file": "pwdc.ps1",
+      "source_location": "L17",
+      "id": "customscripts_pwdc_invoke_pwdc",
+      "community": 28,
+      "norm_label": "invoke-pwdc()"
+    },
+    {
+      "label": "qr.ps1",
+      "file_type": "code",
+      "source_file": "qr.ps1",
+      "source_location": "L1",
+      "id": "qr_ps1",
+      "community": 29,
+      "norm_label": "qr.ps1"
+    },
+    {
+      "label": "Invoke-Qr()",
+      "file_type": "code",
+      "source_file": "qr.ps1",
+      "source_location": "L24",
+      "id": "customscripts_qr_invoke_qr",
+      "community": 29,
+      "norm_label": "invoke-qr()"
+    },
+    {
+      "label": "reboot-bios.ps1",
+      "file_type": "code",
+      "source_file": "reboot-bios.ps1",
+      "source_location": "L1",
+      "id": "reboot_bios_ps1",
+      "community": 30,
+      "norm_label": "reboot-bios.ps1"
+    },
+    {
+      "label": "Invoke-RebootBios()",
+      "file_type": "code",
+      "source_file": "reboot-bios.ps1",
+      "source_location": "L18",
+      "id": "customscripts_reboot_bios_invoke_rebootbios",
+      "community": 30,
+      "norm_label": "invoke-rebootbios()"
+    },
+    {
+      "label": "reset-net.ps1",
+      "file_type": "code",
+      "source_file": "reset-net.ps1",
+      "source_location": "L1",
+      "id": "reset_net_ps1",
+      "community": 31,
+      "norm_label": "reset-net.ps1"
+    },
+    {
+      "label": "Invoke-ResetNetwork()",
+      "file_type": "code",
+      "source_file": "reset-net.ps1",
+      "source_location": "L24",
+      "id": "customscripts_reset_net_invoke_resetnetwork",
+      "community": 31,
+      "norm_label": "invoke-resetnetwork()"
+    },
+    {
+      "label": "restart-explorer.ps1",
+      "file_type": "code",
+      "source_file": "restart-explorer.ps1",
+      "source_location": "L1",
+      "id": "restart_explorer_ps1",
+      "community": 32,
+      "norm_label": "restart-explorer.ps1"
+    },
+    {
+      "label": "Invoke-RestartExplorer()",
+      "file_type": "code",
+      "source_file": "restart-explorer.ps1",
+      "source_location": "L16",
+      "id": "customscripts_restart_explorer_invoke_restartexplorer",
+      "community": 32,
+      "norm_label": "invoke-restartexplorer()"
+    },
+    {
+      "label": "scrcpy.ps1",
+      "file_type": "code",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L1",
+      "id": "scrcpy_ps1",
+      "community": 1,
+      "norm_label": "scrcpy.ps1"
+    },
+    {
+      "label": "Get-WrapperPath()",
+      "file_type": "code",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L11",
+      "id": "customscripts_scrcpy_get_wrapperpath",
+      "community": 1,
+      "norm_label": "get-wrapperpath()"
+    },
+    {
+      "label": "Get-QueuedInput()",
+      "file_type": "code",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L26",
+      "id": "customscripts_scrcpy_get_queuedinput",
+      "community": 1,
+      "norm_label": "get-queuedinput()"
+    },
+    {
+      "label": "Read-MenuInput()",
+      "file_type": "code",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L41",
+      "id": "customscripts_scrcpy_read_menuinput",
+      "community": 1,
+      "norm_label": "read-menuinput()"
+    },
+    {
+      "label": "Invoke-Tool()",
+      "file_type": "code",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L56",
+      "id": "customscripts_scrcpy_invoke_tool",
+      "community": 1,
+      "norm_label": "invoke-tool()"
+    },
+    {
+      "label": "Invoke-Scrcpy()",
+      "file_type": "code",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L71",
+      "id": "customscripts_scrcpy_invoke_scrcpy",
+      "community": 1,
+      "norm_label": "invoke-scrcpy()"
+    },
+    {
+      "label": "Parse-AdbDeviceLine()",
+      "file_type": "code",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L90",
+      "id": "customscripts_scrcpy_parse_adbdeviceline",
+      "community": 1,
+      "norm_label": "parse-adbdeviceline()"
+    },
+    {
+      "label": "Get-AdbDevices()",
+      "file_type": "code",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L128",
+      "id": "customscripts_scrcpy_get_adbdevices",
+      "community": 1,
+      "norm_label": "get-adbdevices()"
+    },
+    {
+      "label": "Show-DeviceList()",
+      "file_type": "code",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L153",
+      "id": "customscripts_scrcpy_show_devicelist",
+      "community": 1,
+      "norm_label": "show-devicelist()"
+    },
+    {
+      "label": "Select-Device()",
+      "file_type": "code",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L166",
+      "id": "customscripts_scrcpy_select_device",
+      "community": 1,
+      "norm_label": "select-device()"
+    },
+    {
+      "label": "Get-ConnectionMode()",
+      "file_type": "code",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L182",
+      "id": "customscripts_scrcpy_get_connectionmode",
+      "community": 1,
+      "norm_label": "get-connectionmode()"
+    },
+    {
+      "label": "Get-AudioSelection()",
+      "file_type": "code",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L200",
+      "id": "customscripts_scrcpy_get_audioselection",
+      "community": 1,
+      "norm_label": "get-audioselection()"
+    },
+    {
+      "label": "Assert-ReadyDevice()",
+      "file_type": "code",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L218",
+      "id": "customscripts_scrcpy_assert_readydevice",
+      "community": 1,
+      "norm_label": "assert-readydevice()"
+    },
+    {
+      "label": "Get-ManualEndpoint()",
+      "file_type": "code",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L237",
+      "id": "customscripts_scrcpy_get_manualendpoint",
+      "community": 1,
+      "norm_label": "get-manualendpoint()"
+    },
+    {
+      "label": "Connect-AdbTcpEndpoint()",
+      "file_type": "code",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L248",
+      "id": "customscripts_scrcpy_connect_adbtcpendpoint",
+      "community": 1,
+      "norm_label": "connect-adbtcpendpoint()"
+    },
+    {
+      "label": "Resolve-DeviceWifiIp()",
+      "file_type": "code",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L263",
+      "id": "customscripts_scrcpy_resolve_devicewifiip",
+      "community": 1,
+      "norm_label": "resolve-devicewifiip()"
+    },
+    {
+      "label": "Start-WirelessBootstrap()",
+      "file_type": "code",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L290",
+      "id": "customscripts_scrcpy_start_wirelessbootstrap",
+      "community": 1,
+      "norm_label": "start-wirelessbootstrap()"
+    },
+    {
+      "label": "serve.ps1",
+      "file_type": "code",
+      "source_file": "serve.ps1",
+      "source_location": "L1",
+      "id": "serve_ps1",
+      "community": 33,
+      "norm_label": "serve.ps1"
+    },
+    {
+      "label": "Invoke-Serve()",
+      "file_type": "code",
+      "source_file": "serve.ps1",
+      "source_location": "L24",
+      "id": "customscripts_serve_invoke_serve",
+      "community": 33,
+      "norm_label": "invoke-serve()"
+    },
+    {
+      "label": "setup.ps1",
+      "file_type": "code",
+      "source_file": "setup.ps1",
+      "source_location": "L1",
+      "id": "setup_ps1",
+      "community": 2,
+      "norm_label": "setup.ps1"
+    },
+    {
+      "label": "Initialize-ProfileFile()",
+      "file_type": "code",
+      "source_file": "setup.ps1",
+      "source_location": "L19",
+      "id": "customscripts_setup_initialize_profilefile",
+      "community": 2,
+      "norm_label": "initialize-profilefile()"
+    },
+    {
+      "label": "Test-IsAdministrator()",
+      "file_type": "code",
+      "source_file": "setup.ps1",
+      "source_location": "L32",
+      "id": "customscripts_setup_test_isadministrator",
+      "community": 2,
+      "norm_label": "test-isadministrator()"
+    },
+    {
+      "label": "Get-WindowsSudoCommand()",
+      "file_type": "code",
+      "source_file": "setup.ps1",
+      "source_location": "L38",
+      "id": "customscripts_setup_get_windowssudocommand",
+      "community": 2,
+      "norm_label": "get-windowssudocommand()"
+    },
+    {
+      "label": "Get-WindowsSudoConfig()",
+      "file_type": "code",
+      "source_file": "setup.ps1",
+      "source_location": "L42",
+      "id": "customscripts_setup_get_windowssudoconfig",
+      "community": 2,
+      "norm_label": "get-windowssudoconfig()"
+    },
+    {
+      "label": "Set-WindowsSudoConfig()",
+      "file_type": "code",
+      "source_file": "setup.ps1",
+      "source_location": "L46",
+      "id": "customscripts_setup_set_windowssudoconfig",
+      "community": 2,
+      "norm_label": "set-windowssudoconfig()"
+    },
+    {
+      "label": "Enable-WindowsSudoMode()",
+      "file_type": "code",
+      "source_file": "setup.ps1",
+      "source_location": "L59",
+      "id": "customscripts_setup_enable_windowssudomode",
+      "community": 2,
+      "norm_label": "enable-windowssudomode()"
+    },
+    {
+      "label": "Install-Dependencies()",
+      "file_type": "code",
+      "source_file": "setup.ps1",
+      "source_location": "L101",
+      "id": "customscripts_setup_install_dependencies",
+      "community": 2,
+      "norm_label": "install-dependencies()"
+    },
+    {
+      "label": "Update-Dependencies()",
+      "file_type": "code",
+      "source_file": "setup.ps1",
+      "source_location": "L186",
+      "id": "customscripts_setup_update_dependencies",
+      "community": 2,
+      "norm_label": "update-dependencies()"
+    },
+    {
+      "label": "Remove-Dependencies()",
+      "file_type": "code",
+      "source_file": "setup.ps1",
+      "source_location": "L202",
+      "id": "customscripts_setup_remove_dependencies",
+      "community": 2,
+      "norm_label": "remove-dependencies()"
+    },
+    {
+      "label": "Get-ScriptAliases()",
+      "file_type": "code",
+      "source_file": "setup.ps1",
+      "source_location": "L222",
+      "id": "customscripts_setup_get_scriptaliases",
+      "community": 2,
+      "norm_label": "get-scriptaliases()"
+    },
+    {
+      "label": "New-CmdShims()",
+      "file_type": "code",
+      "source_file": "setup.ps1",
+      "source_location": "L252",
+      "id": "customscripts_setup_new_cmdshims",
+      "community": 2,
+      "norm_label": "new-cmdshims()"
+    },
+    {
+      "label": "Remove-Aliases()",
+      "file_type": "code",
+      "source_file": "setup.ps1",
+      "source_location": "L282",
+      "id": "customscripts_setup_remove_aliases",
+      "community": 2,
+      "norm_label": "remove-aliases()"
+    },
+    {
+      "label": "Get-ScriptList()",
+      "file_type": "code",
+      "source_file": "setup.ps1",
+      "source_location": "L291",
+      "id": "customscripts_setup_get_scriptlist",
+      "community": 2,
+      "norm_label": "get-scriptlist()"
+    },
+    {
+      "label": "Sync-Aliases()",
+      "file_type": "code",
+      "source_file": "setup.ps1",
+      "source_location": "L300",
+      "id": "customscripts_setup_sync_aliases",
+      "community": 2,
+      "norm_label": "sync-aliases()"
+    },
+    {
+      "label": "sys-lock.ps1",
+      "file_type": "code",
+      "source_file": "sys-lock.ps1",
+      "source_location": "L1",
+      "id": "sys_lock_ps1",
+      "community": 34,
+      "norm_label": "sys-lock.ps1"
+    },
+    {
+      "label": "Invoke-SysLock()",
+      "file_type": "code",
+      "source_file": "sys-lock.ps1",
+      "source_location": "L16",
+      "id": "customscripts_sys_lock_invoke_syslock",
+      "community": 34,
+      "norm_label": "invoke-syslock()"
+    },
+    {
+      "label": "sys-sleep.ps1",
+      "file_type": "code",
+      "source_file": "sys-sleep.ps1",
+      "source_location": "L1",
+      "id": "sys_sleep_ps1",
+      "community": 35,
+      "norm_label": "sys-sleep.ps1"
+    },
+    {
+      "label": "Invoke-SysSleep()",
+      "file_type": "code",
+      "source_file": "sys-sleep.ps1",
+      "source_location": "L16",
+      "id": "customscripts_sys_sleep_invoke_syssleep",
+      "community": 35,
+      "norm_label": "invoke-syssleep()"
+    },
+    {
+      "label": "sysinfo.ps1",
+      "file_type": "code",
+      "source_file": "sysinfo.ps1",
+      "source_location": "L1",
+      "id": "sysinfo_ps1",
+      "community": 36,
+      "norm_label": "sysinfo.ps1"
+    },
+    {
+      "label": "Invoke-SysInfo()",
+      "file_type": "code",
+      "source_file": "sysinfo.ps1",
+      "source_location": "L16",
+      "id": "customscripts_sysinfo_invoke_sysinfo",
+      "community": 36,
+      "norm_label": "invoke-sysinfo()"
+    },
+    {
+      "label": "systemctl.ps1",
+      "file_type": "code",
+      "source_file": "systemctl.ps1",
+      "source_location": "L1",
+      "id": "systemctl_ps1",
+      "community": 37,
+      "norm_label": "systemctl.ps1"
+    },
+    {
+      "label": "Invoke-Systemctl()",
+      "file_type": "code",
+      "source_file": "systemctl.ps1",
+      "source_location": "L22",
+      "id": "customscripts_systemctl_invoke_systemctl",
+      "community": 37,
+      "norm_label": "invoke-systemctl()"
+    },
+    {
+      "label": "tail.ps1",
+      "file_type": "code",
+      "source_file": "tail.ps1",
+      "source_location": "L1",
+      "id": "tail_ps1",
+      "community": 38,
+      "norm_label": "tail.ps1"
+    },
+    {
+      "label": "Invoke-Tail()",
+      "file_type": "code",
+      "source_file": "tail.ps1",
+      "source_location": "L25",
+      "id": "customscripts_tail_invoke_tail",
+      "community": 38,
+      "norm_label": "invoke-tail()"
+    },
+    {
+      "label": "time.ps1",
+      "file_type": "code",
+      "source_file": "time.ps1",
+      "source_location": "L1",
+      "id": "time_ps1",
+      "community": 39,
+      "norm_label": "time.ps1"
+    },
+    {
+      "label": "Invoke-Time()",
+      "file_type": "code",
+      "source_file": "time.ps1",
+      "source_location": "L19",
+      "id": "customscripts_time_invoke_time",
+      "community": 39,
+      "norm_label": "invoke-time()"
+    },
+    {
+      "label": "top-proc.ps1",
+      "file_type": "code",
+      "source_file": "top-proc.ps1",
+      "source_location": "L1",
+      "id": "top_proc_ps1",
+      "community": 40,
+      "norm_label": "top-proc.ps1"
+    },
+    {
+      "label": "Invoke-TopProc()",
+      "file_type": "code",
+      "source_file": "top-proc.ps1",
+      "source_location": "L31",
+      "id": "customscripts_top_proc_invoke_topproc",
+      "community": 40,
+      "norm_label": "invoke-topproc()"
+    },
+    {
+      "label": "touch.ps1",
+      "file_type": "code",
+      "source_file": "touch.ps1",
+      "source_location": "L1",
+      "id": "touch_ps1",
+      "community": 55,
+      "norm_label": "touch.ps1"
+    },
+    {
+      "label": "trash.ps1",
+      "file_type": "code",
+      "source_file": "trash.ps1",
+      "source_location": "L1",
+      "id": "trash_ps1",
+      "community": 41,
+      "norm_label": "trash.ps1"
+    },
+    {
+      "label": "Invoke-Trash()",
+      "file_type": "code",
+      "source_file": "trash.ps1",
+      "source_location": "L19",
+      "id": "customscripts_trash_invoke_trash",
+      "community": 41,
+      "norm_label": "invoke-trash()"
+    },
+    {
+      "label": "unzip.ps1",
+      "file_type": "code",
+      "source_file": "unzip.ps1",
+      "source_location": "L1",
+      "id": "unzip_ps1",
+      "community": 42,
+      "norm_label": "unzip.ps1"
+    },
+    {
+      "label": "Invoke-Unzip()",
+      "file_type": "code",
+      "source_file": "unzip.ps1",
+      "source_location": "L22",
+      "id": "customscripts_unzip_invoke_unzip",
+      "community": 42,
+      "norm_label": "invoke-unzip()"
+    },
+    {
+      "label": "update.ps1",
+      "file_type": "code",
+      "source_file": "update.ps1",
+      "source_location": "L1",
+      "id": "update_ps1",
+      "community": 43,
+      "norm_label": "update.ps1"
+    },
+    {
+      "label": "Update-System()",
+      "file_type": "code",
+      "source_file": "update.ps1",
+      "source_location": "L12",
+      "id": "customscripts_update_update_system",
+      "community": 43,
+      "norm_label": "update-system()"
+    },
+    {
+      "label": "uptime.ps1",
+      "file_type": "code",
+      "source_file": "uptime.ps1",
+      "source_location": "L1",
+      "id": "uptime_ps1",
+      "community": 44,
+      "norm_label": "uptime.ps1"
+    },
+    {
+      "label": "Invoke-Uptime()",
+      "file_type": "code",
+      "source_file": "uptime.ps1",
+      "source_location": "L16",
+      "id": "customscripts_uptime_invoke_uptime",
+      "community": 44,
+      "norm_label": "invoke-uptime()"
+    },
+    {
+      "label": "watch.ps1",
+      "file_type": "code",
+      "source_file": "watch.ps1",
+      "source_location": "L1",
+      "id": "watch_ps1",
+      "community": 45,
+      "norm_label": "watch.ps1"
+    },
+    {
+      "label": "Invoke-Watch()",
+      "file_type": "code",
+      "source_file": "watch.ps1",
+      "source_location": "L22",
+      "id": "customscripts_watch_invoke_watch",
+      "community": 45,
+      "norm_label": "invoke-watch()"
+    },
+    {
+      "label": "weather.ps1",
+      "file_type": "code",
+      "source_file": "weather.ps1",
+      "source_location": "L1",
+      "id": "weather_ps1",
+      "community": 46,
+      "norm_label": "weather.ps1"
+    },
+    {
+      "label": "Invoke-Weather()",
+      "file_type": "code",
+      "source_file": "weather.ps1",
+      "source_location": "L29",
+      "id": "customscripts_weather_invoke_weather",
+      "community": 46,
+      "norm_label": "invoke-weather()"
+    },
+    {
+      "label": "whereis.ps1",
+      "file_type": "code",
+      "source_file": "whereis.ps1",
+      "source_location": "L1",
+      "id": "whereis_ps1",
+      "community": 47,
+      "norm_label": "whereis.ps1"
+    },
+    {
+      "label": "Invoke-WhereIs()",
+      "file_type": "code",
+      "source_file": "whereis.ps1",
+      "source_location": "L19",
+      "id": "customscripts_whereis_invoke_whereis",
+      "community": 47,
+      "norm_label": "invoke-whereis()"
+    },
+    {
+      "label": "wifi-pass.ps1",
+      "file_type": "code",
+      "source_file": "wifi-pass.ps1",
+      "source_location": "L1",
+      "id": "wifi_pass_ps1",
+      "community": 9,
+      "norm_label": "wifi-pass.ps1"
+    },
+    {
+      "label": "Show-Menu()",
+      "file_type": "code",
+      "source_file": "wifi-pass.ps1",
+      "source_location": "L22",
+      "id": "customscripts_wifi_pass_show_menu",
+      "community": 9,
+      "norm_label": "show-menu()"
+    },
+    {
+      "label": "Invoke-WiFiPass()",
+      "file_type": "code",
+      "source_file": "wifi-pass.ps1",
+      "source_location": "L86",
+      "id": "customscripts_wifi_pass_invoke_wifipass",
+      "community": 9,
+      "norm_label": "invoke-wifipass()"
+    },
+    {
+      "label": "wifi-qr.ps1",
+      "file_type": "code",
+      "source_file": "wifi-qr.ps1",
+      "source_location": "L1",
+      "id": "wifi_qr_ps1",
+      "community": 10,
+      "norm_label": "wifi-qr.ps1"
+    },
+    {
+      "label": "Show-Menu()",
+      "file_type": "code",
+      "source_file": "wifi-qr.ps1",
+      "source_location": "L22",
+      "id": "customscripts_wifi_qr_show_menu",
+      "community": 10,
+      "norm_label": "show-menu()"
+    },
+    {
+      "label": "Invoke-WiFiQR()",
+      "file_type": "code",
+      "source_file": "wifi-qr.ps1",
+      "source_location": "L86",
+      "id": "customscripts_wifi_qr_invoke_wifiqr",
+      "community": 10,
+      "norm_label": "invoke-wifiqr()"
+    },
+    {
+      "label": "zip-code.ps1",
+      "file_type": "code",
+      "source_file": "zip-code.ps1",
+      "source_location": "L1",
+      "id": "zip_code_ps1",
+      "community": 48,
+      "norm_label": "zip-code.ps1"
+    },
+    {
+      "label": "Invoke-ZipCode()",
+      "file_type": "code",
+      "source_file": "zip-code.ps1",
+      "source_location": "L27",
+      "id": "customscripts_zip_code_invoke_zipcode",
+      "community": 48,
+      "norm_label": "invoke-zipcode()"
+    },
+    {
+      "label": "zip.ps1",
+      "file_type": "code",
+      "source_file": "zip.ps1",
+      "source_location": "L1",
+      "id": "zip_ps1",
+      "community": 49,
+      "norm_label": "zip.ps1"
+    },
+    {
+      "label": "Invoke-Zip()",
+      "file_type": "code",
+      "source_file": "zip.ps1",
+      "source_location": "L22",
+      "id": "customscripts_zip_invoke_zip",
+      "community": 49,
+      "norm_label": "invoke-zip()"
+    },
+    {
+      "label": "scrcpy.tests.ps1",
+      "file_type": "code",
+      "source_file": "tests/scrcpy.tests.ps1",
+      "source_location": "L1",
+      "id": "tests_scrcpy_tests_ps1",
+      "community": 4,
+      "norm_label": "scrcpy.tests.ps1"
+    },
+    {
+      "label": "Reset-TestArtifacts()",
+      "file_type": "code",
+      "source_file": "tests/scrcpy.tests.ps1",
+      "source_location": "L9",
+      "id": "tests_scrcpy_tests_reset_testartifacts",
+      "community": 4,
+      "norm_label": "reset-testartifacts()"
+    },
+    {
+      "label": "Set-TestEnv()",
+      "file_type": "code",
+      "source_file": "tests/scrcpy.tests.ps1",
+      "source_location": "L16",
+      "id": "tests_scrcpy_tests_set_testenv",
+      "community": 4,
+      "norm_label": "set-testenv()"
+    },
+    {
+      "label": "Clear-TestEnv()",
+      "file_type": "code",
+      "source_file": "tests/scrcpy.tests.ps1",
+      "source_location": "L29",
+      "id": "tests_scrcpy_tests_clear_testenv",
+      "community": 4,
+      "norm_label": "clear-testenv()"
+    },
+    {
+      "label": "Invoke-Wrapper()",
+      "file_type": "code",
+      "source_file": "tests/scrcpy.tests.ps1",
+      "source_location": "L41",
+      "id": "tests_scrcpy_tests_invoke_wrapper",
+      "community": 4,
+      "norm_label": "invoke-wrapper()"
+    },
+    {
+      "label": "Assert-Equal()",
+      "file_type": "code",
+      "source_file": "tests/scrcpy.tests.ps1",
+      "source_location": "L53",
+      "id": "tests_scrcpy_tests_assert_equal",
+      "community": 4,
+      "norm_label": "assert-equal()"
+    },
+    {
+      "label": "Assert-Match()",
+      "file_type": "code",
+      "source_file": "tests/scrcpy.tests.ps1",
+      "source_location": "L65",
+      "id": "tests_scrcpy_tests_assert_match",
+      "community": 4,
+      "norm_label": "assert-match()"
+    },
+    {
+      "label": "Read-ArgsLog()",
+      "file_type": "code",
+      "source_file": "tests/scrcpy.tests.ps1",
+      "source_location": "L77",
+      "id": "tests_scrcpy_tests_read_argslog",
+      "community": 4,
+      "norm_label": "read-argslog()"
+    },
+    {
+      "label": "fake-adb.ps1",
+      "file_type": "code",
+      "source_file": "tests/fixtures/fake-adb.ps1",
+      "source_location": "L1",
+      "id": "tests_fixtures_fake_adb_ps1",
+      "community": 50,
+      "norm_label": "fake-adb.ps1"
+    },
+    {
+      "label": "Write-DeviceList()",
+      "file_type": "code",
+      "source_file": "tests/fixtures/fake-adb.ps1",
+      "source_location": "L16",
+      "id": "fixtures_fake_adb_write_devicelist",
+      "community": 50,
+      "norm_label": "write-devicelist()"
+    },
+    {
+      "label": "fake-scrcpy.ps1",
+      "file_type": "code",
+      "source_file": "tests/fixtures/fake-scrcpy.ps1",
+      "source_location": "L1",
+      "id": "tests_fixtures_fake_scrcpy_ps1",
+      "community": 56,
+      "norm_label": "fake-scrcpy.ps1"
+    },
+    {
+      "label": "Context.md",
+      "file_type": "document",
+      "source_file": "Context.md",
+      "source_location": "L1",
+      "id": "context_md",
+      "community": 3,
+      "norm_label": "context.md"
+    },
+    {
+      "label": "CustomScripts - Context",
+      "file_type": "document",
+      "source_file": "Context.md",
+      "source_location": "L1",
+      "id": "customscripts_context_customscripts_context",
+      "community": 3,
+      "norm_label": "customscripts - context"
+    },
+    {
+      "label": "Overview",
+      "file_type": "document",
+      "source_file": "Context.md",
+      "source_location": "L3",
+      "id": "customscripts_context_overview",
+      "community": 3,
+      "norm_label": "overview"
+    },
+    {
+      "label": "Architecture",
+      "file_type": "document",
+      "source_file": "Context.md",
+      "source_location": "L8",
+      "id": "customscripts_context_architecture",
+      "community": 3,
+      "norm_label": "architecture"
+    },
+    {
+      "label": "Scripts",
+      "file_type": "document",
+      "source_file": "Context.md",
+      "source_location": "L14",
+      "id": "customscripts_context_scripts",
+      "community": 3,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "The \"Linux in Windows\" Dictionary",
+      "file_type": "document",
+      "source_file": "Context.md",
+      "source_location": "L73",
+      "id": "customscripts_context_the_linux_in_windows_dictionary",
+      "community": 3,
+      "norm_label": "the \"linux in windows\" dictionary"
+    },
+    {
+      "label": "Dependencies (managed by `setup.ps1 -Deps`)",
+      "file_type": "document",
+      "source_file": "Context.md",
+      "source_location": "L108",
+      "id": "customscripts_context_dependencies_managed_by_setup_ps1_deps",
+      "community": 3,
+      "norm_label": "dependencies (managed by `setup.ps1 -deps`)"
+    },
+    {
+      "label": "Bundled Runtime Assets",
+      "file_type": "document",
+      "source_file": "Context.md",
+      "source_location": "L114",
+      "id": "customscripts_context_bundled_runtime_assets",
+      "community": 3,
+      "norm_label": "bundled runtime assets"
+    },
+    {
+      "label": "Pinned Packages (excluded from winget upgrade)",
+      "file_type": "document",
+      "source_file": "Context.md",
+      "source_location": "L118",
+      "id": "customscripts_context_pinned_packages_excluded_from_winget_upgrade",
+      "community": 3,
+      "norm_label": "pinned packages (excluded from winget upgrade)"
+    },
+    {
+      "label": "Changelog",
+      "file_type": "document",
+      "source_file": "Context.md",
+      "source_location": "L123",
+      "id": "customscripts_context_changelog",
+      "community": 3,
+      "norm_label": "changelog"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "id": "readme_md",
+      "community": 0,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "CustomScripts Arsenal",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "id": "customscripts_readme_customscripts_arsenal",
+      "community": 0,
+      "norm_label": "customscripts arsenal"
+    },
+    {
+      "label": "Highlights",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L7",
+      "id": "customscripts_readme_highlights",
+      "community": 0,
+      "norm_label": "highlights"
+    },
+    {
+      "label": "Why This Project Exists",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L17",
+      "id": "customscripts_readme_why_this_project_exists",
+      "community": 0,
+      "norm_label": "why this project exists"
+    },
+    {
+      "label": "Installation",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L23",
+      "id": "customscripts_readme_installation",
+      "community": 0,
+      "norm_label": "installation"
+    },
+    {
+      "label": "code:powershell (.\\setup.ps1 -Install)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L29",
+      "id": "customscripts_readme_codeblock_1",
+      "community": 0,
+      "norm_label": "code:powershell (.\\setup.ps1 -install)"
+    },
+    {
+      "label": "code:powershell (. $PROFILE)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L35",
+      "id": "customscripts_readme_codeblock_2",
+      "community": 0,
+      "norm_label": "code:powershell (. $profile)"
+    },
+    {
+      "label": "What `setup.ps1 -Install` does",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L39",
+      "id": "customscripts_readme_what_setup_ps1_install_does",
+      "community": 0,
+      "norm_label": "what `setup.ps1 -install` does"
+    },
+    {
+      "label": "Setup Commands",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L48",
+      "id": "customscripts_readme_setup_commands",
+      "community": 0,
+      "norm_label": "setup commands"
+    },
+    {
+      "label": "code:powershell (.\\setup.ps1 -Install)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L50",
+      "id": "customscripts_readme_codeblock_3",
+      "community": 0,
+      "norm_label": "code:powershell (.\\setup.ps1 -install)"
+    },
+    {
+      "label": "Command meanings",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L58",
+      "id": "customscripts_readme_command_meanings",
+      "community": 0,
+      "norm_label": "command meanings"
+    },
+    {
+      "label": "Command Categories",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L66",
+      "id": "customscripts_readme_command_categories",
+      "community": 5,
+      "norm_label": "command categories"
+    },
+    {
+      "label": "System and Admin",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L68",
+      "id": "customscripts_readme_system_and_admin",
+      "community": 5,
+      "norm_label": "system and admin"
+    },
+    {
+      "label": "Network and Connectivity",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L85",
+      "id": "customscripts_readme_network_and_connectivity",
+      "community": 5,
+      "norm_label": "network and connectivity"
+    },
+    {
+      "label": "Files and Storage",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L102",
+      "id": "customscripts_readme_files_and_storage",
+      "community": 5,
+      "norm_label": "files and storage"
+    },
+    {
+      "label": "Terminal and Productivity",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L120",
+      "id": "customscripts_readme_terminal_and_productivity",
+      "community": 5,
+      "norm_label": "terminal and productivity"
+    },
+    {
+      "label": "Developer Utilities",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L135",
+      "id": "customscripts_readme_developer_utilities",
+      "community": 5,
+      "norm_label": "developer utilities"
+    },
+    {
+      "label": "How It Works",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L144",
+      "id": "customscripts_readme_how_it_works",
+      "community": 0,
+      "norm_label": "how it works"
+    },
+    {
+      "label": "scrcpy Wrapper",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L152",
+      "id": "customscripts_readme_scrcpy_wrapper",
+      "community": 0,
+      "norm_label": "scrcpy wrapper"
+    },
+    {
+      "label": "code:powershell (scrcpy)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L164",
+      "id": "customscripts_readme_codeblock_4",
+      "community": 0,
+      "norm_label": "code:powershell (scrcpy)"
+    },
+    {
+      "label": "Linux-to-Windows Mental Model",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L170",
+      "id": "customscripts_readme_linux_to_windows_mental_model",
+      "community": 0,
+      "norm_label": "linux-to-windows mental model"
+    },
+    {
+      "label": "Requirements",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L192",
+      "id": "customscripts_readme_requirements",
+      "community": 0,
+      "norm_label": "requirements"
+    },
+    {
+      "label": "Notes",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L199",
+      "id": "customscripts_readme_notes",
+      "community": 0,
+      "norm_label": "notes"
+    },
+    {
+      "label": "Project Structure",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L205",
+      "id": "customscripts_readme_project_structure",
+      "community": 0,
+      "norm_label": "project structure"
+    },
+    {
+      "label": "code:text (CustomScripts/)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L207",
+      "id": "customscripts_readme_codeblock_5",
+      "community": 0,
+      "norm_label": "code:text (customscripts/)"
+    },
+    {
+      "label": "Typical Workflow",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L218",
+      "id": "customscripts_readme_typical_workflow",
+      "community": 0,
+      "norm_label": "typical workflow"
+    },
+    {
+      "label": "code:powershell (.\\setup.ps1 -Install)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L220",
+      "id": "customscripts_readme_codeblock_6",
+      "community": 0,
+      "norm_label": "code:powershell (.\\setup.ps1 -install)"
+    },
+    {
+      "label": "License",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L234",
+      "id": "customscripts_readme_license",
+      "community": 0,
+      "norm_label": "license"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "check-host.ps1",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "check_host_ps1",
+      "target": "customscripts_check_host_invoke_checkhost",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "checksum.ps1",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "checksum_ps1",
+      "target": "customscripts_checksum_invoke_checksum",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "clean-system.ps1",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "clean_system_ps1",
+      "target": "customscripts_clean_system_invoke_cleansystem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "clean-wifi.ps1",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "clean_wifi_ps1",
+      "target": "customscripts_clean_wifi_show_multiselectmenu",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "clean-wifi.ps1",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "clean_wifi_ps1",
+      "target": "customscripts_clean_wifi_invoke_cleanwifi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "clean-wifi.ps1",
+      "source_location": "L145",
+      "weight": 1.0,
+      "source": "customscripts_clean_wifi_invoke_cleanwifi",
+      "target": "customscripts_clean_wifi_show_multiselectmenu",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "cmds.ps1",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "cmds_ps1",
+      "target": "customscripts_cmds_invoke_cmds",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "df.ps1",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "df_ps1",
+      "target": "customscripts_df_invoke_df",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ExportToPdf.ps1",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "exporttopdf_ps1",
+      "target": "customscripts_exporttopdf_show_usage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ExportToPdf.ps1",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "exporttopdf_ps1",
+      "target": "customscripts_exporttopdf_convert_topdf",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ExportToPdf.ps1",
+      "source_location": "L150",
+      "weight": 1.0,
+      "source": "exporttopdf_ps1",
+      "target": "customscripts_exporttopdf_invoke_exporttopdf",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "ExportToPdf.ps1",
+      "source_location": "L152",
+      "weight": 1.0,
+      "source": "customscripts_exporttopdf_invoke_exporttopdf",
+      "target": "customscripts_exporttopdf_show_usage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "ExportToPdf.ps1",
+      "source_location": "L180",
+      "weight": 1.0,
+      "source": "customscripts_exporttopdf_invoke_exporttopdf",
+      "target": "customscripts_exporttopdf_convert_topdf",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "find-large.ps1",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "find_large_ps1",
+      "target": "customscripts_find_large_invoke_findlargefiles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "free.ps1",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "free_ps1",
+      "target": "customscripts_free_invoke_free",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gen-pass.ps1",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "gen_pass_ps1",
+      "target": "customscripts_gen_pass_invoke_genpass",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "grep.ps1",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "grep_ps1",
+      "target": "customscripts_grep_invoke_grep",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "hosts.ps1",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "hosts_ps1",
+      "target": "customscripts_hosts_invoke_hosts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "kill-app.ps1",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "kill_app_ps1",
+      "target": "customscripts_kill_app_invoke_killapp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "kill-port.ps1",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "kill_port_ps1",
+      "target": "customscripts_kill_port_invoke_killport",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "list-ports.ps1",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "list_ports_ps1",
+      "target": "customscripts_list_ports_invoke_listports",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ll.ps1",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "ll_ps1",
+      "target": "customscripts_ll_invoke_ll",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "mkproj.ps1",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "mkproj_ps1",
+      "target": "customscripts_mkproj_show_header",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "mkproj.ps1",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "mkproj_ps1",
+      "target": "customscripts_mkproj_show_help",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "mkproj.ps1",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "mkproj_ps1",
+      "target": "customscripts_mkproj_invoke_mkproj",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "mkproj.ps1",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "customscripts_mkproj_show_help",
+      "target": "customscripts_mkproj_show_header",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "mkproj.ps1",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "customscripts_mkproj_invoke_mkproj",
+      "target": "customscripts_mkproj_show_header",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "mkproj.ps1",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "customscripts_mkproj_invoke_mkproj",
+      "target": "customscripts_mkproj_show_help",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "myip.ps1",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "myip_ps1",
+      "target": "customscripts_myip_show_myip",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nano.ps1",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "nano_ps1",
+      "target": "customscripts_nano_invoke_nano",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nc.ps1",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "nc_ps1",
+      "target": "customscripts_nc_invoke_nc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "pwdc.ps1",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "pwdc_ps1",
+      "target": "customscripts_pwdc_invoke_pwdc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "qr.ps1",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "qr_ps1",
+      "target": "customscripts_qr_invoke_qr",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reboot-bios.ps1",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "reboot_bios_ps1",
+      "target": "customscripts_reboot_bios_invoke_rebootbios",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "reset-net.ps1",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "reset_net_ps1",
+      "target": "customscripts_reset_net_invoke_resetnetwork",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "restart-explorer.ps1",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "restart_explorer_ps1",
+      "target": "customscripts_restart_explorer_invoke_restartexplorer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "scrcpy_ps1",
+      "target": "customscripts_scrcpy_get_wrapperpath",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "scrcpy_ps1",
+      "target": "customscripts_scrcpy_get_queuedinput",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "scrcpy_ps1",
+      "target": "customscripts_scrcpy_read_menuinput",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "scrcpy_ps1",
+      "target": "customscripts_scrcpy_invoke_tool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "scrcpy_ps1",
+      "target": "customscripts_scrcpy_invoke_scrcpy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "scrcpy_ps1",
+      "target": "customscripts_scrcpy_parse_adbdeviceline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L128",
+      "weight": 1.0,
+      "source": "scrcpy_ps1",
+      "target": "customscripts_scrcpy_get_adbdevices",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L153",
+      "weight": 1.0,
+      "source": "scrcpy_ps1",
+      "target": "customscripts_scrcpy_show_devicelist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L166",
+      "weight": 1.0,
+      "source": "scrcpy_ps1",
+      "target": "customscripts_scrcpy_select_device",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L182",
+      "weight": 1.0,
+      "source": "scrcpy_ps1",
+      "target": "customscripts_scrcpy_get_connectionmode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L200",
+      "weight": 1.0,
+      "source": "scrcpy_ps1",
+      "target": "customscripts_scrcpy_get_audioselection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L218",
+      "weight": 1.0,
+      "source": "scrcpy_ps1",
+      "target": "customscripts_scrcpy_assert_readydevice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L237",
+      "weight": 1.0,
+      "source": "scrcpy_ps1",
+      "target": "customscripts_scrcpy_get_manualendpoint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L248",
+      "weight": 1.0,
+      "source": "scrcpy_ps1",
+      "target": "customscripts_scrcpy_connect_adbtcpendpoint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L263",
+      "weight": 1.0,
+      "source": "scrcpy_ps1",
+      "target": "customscripts_scrcpy_resolve_devicewifiip",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L290",
+      "weight": 1.0,
+      "source": "scrcpy_ps1",
+      "target": "customscripts_scrcpy_start_wirelessbootstrap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "customscripts_scrcpy_read_menuinput",
+      "target": "customscripts_scrcpy_get_queuedinput",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L172",
+      "weight": 1.0,
+      "source": "customscripts_scrcpy_select_device",
+      "target": "customscripts_scrcpy_read_menuinput",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L190",
+      "weight": 1.0,
+      "source": "customscripts_scrcpy_get_connectionmode",
+      "target": "customscripts_scrcpy_read_menuinput",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L208",
+      "weight": 1.0,
+      "source": "customscripts_scrcpy_get_audioselection",
+      "target": "customscripts_scrcpy_read_menuinput",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L239",
+      "weight": 1.0,
+      "source": "customscripts_scrcpy_get_manualendpoint",
+      "target": "customscripts_scrcpy_read_menuinput",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L133",
+      "weight": 1.0,
+      "source": "customscripts_scrcpy_get_adbdevices",
+      "target": "customscripts_scrcpy_invoke_tool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L254",
+      "weight": 1.0,
+      "source": "customscripts_scrcpy_connect_adbtcpendpoint",
+      "target": "customscripts_scrcpy_invoke_tool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L276",
+      "weight": 1.0,
+      "source": "customscripts_scrcpy_resolve_devicewifiip",
+      "target": "customscripts_scrcpy_invoke_tool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L300",
+      "weight": 1.0,
+      "source": "customscripts_scrcpy_start_wirelessbootstrap",
+      "target": "customscripts_scrcpy_invoke_tool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L144",
+      "weight": 1.0,
+      "source": "customscripts_scrcpy_get_adbdevices",
+      "target": "customscripts_scrcpy_parse_adbdeviceline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L308",
+      "weight": 1.0,
+      "source": "customscripts_scrcpy_start_wirelessbootstrap",
+      "target": "customscripts_scrcpy_connect_adbtcpendpoint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scrcpy.ps1",
+      "source_location": "L305",
+      "weight": 1.0,
+      "source": "customscripts_scrcpy_start_wirelessbootstrap",
+      "target": "customscripts_scrcpy_resolve_devicewifiip",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "serve.ps1",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "serve_ps1",
+      "target": "customscripts_serve_invoke_serve",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "setup_ps1",
+      "target": "customscripts_setup_initialize_profilefile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "setup_ps1",
+      "target": "customscripts_setup_test_isadministrator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "setup_ps1",
+      "target": "customscripts_setup_get_windowssudocommand",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "setup_ps1",
+      "target": "customscripts_setup_get_windowssudoconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "setup_ps1",
+      "target": "customscripts_setup_set_windowssudoconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "setup_ps1",
+      "target": "customscripts_setup_enable_windowssudomode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "setup_ps1",
+      "target": "customscripts_setup_install_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L186",
+      "weight": 1.0,
+      "source": "setup_ps1",
+      "target": "customscripts_setup_update_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L202",
+      "weight": 1.0,
+      "source": "setup_ps1",
+      "target": "customscripts_setup_remove_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L222",
+      "weight": 1.0,
+      "source": "setup_ps1",
+      "target": "customscripts_setup_get_scriptaliases",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L252",
+      "weight": 1.0,
+      "source": "setup_ps1",
+      "target": "customscripts_setup_new_cmdshims",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L282",
+      "weight": 1.0,
+      "source": "setup_ps1",
+      "target": "customscripts_setup_remove_aliases",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L291",
+      "weight": 1.0,
+      "source": "setup_ps1",
+      "target": "customscripts_setup_get_scriptlist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L300",
+      "weight": 1.0,
+      "source": "setup_ps1",
+      "target": "customscripts_setup_sync_aliases",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L283",
+      "weight": 1.0,
+      "source": "customscripts_setup_remove_aliases",
+      "target": "customscripts_setup_initialize_profilefile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L301",
+      "weight": 1.0,
+      "source": "customscripts_setup_sync_aliases",
+      "target": "customscripts_setup_initialize_profilefile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "customscripts_setup_enable_windowssudomode",
+      "target": "customscripts_setup_test_isadministrator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "customscripts_setup_install_dependencies",
+      "target": "customscripts_setup_test_isadministrator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "customscripts_setup_enable_windowssudomode",
+      "target": "customscripts_setup_get_windowssudocommand",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "customscripts_setup_enable_windowssudomode",
+      "target": "customscripts_setup_get_windowssudoconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "customscripts_setup_enable_windowssudomode",
+      "target": "customscripts_setup_set_windowssudoconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L182",
+      "weight": 1.0,
+      "source": "customscripts_setup_install_dependencies",
+      "target": "customscripts_setup_enable_windowssudomode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L302",
+      "weight": 1.0,
+      "source": "customscripts_setup_sync_aliases",
+      "target": "customscripts_setup_install_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L292",
+      "weight": 1.0,
+      "source": "customscripts_setup_get_scriptlist",
+      "target": "customscripts_setup_get_scriptaliases",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L306",
+      "weight": 1.0,
+      "source": "customscripts_setup_sync_aliases",
+      "target": "customscripts_setup_get_scriptaliases",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L303",
+      "weight": 1.0,
+      "source": "customscripts_setup_sync_aliases",
+      "target": "customscripts_setup_new_cmdshims",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.ps1",
+      "source_location": "L307",
+      "weight": 1.0,
+      "source": "customscripts_setup_sync_aliases",
+      "target": "customscripts_setup_remove_aliases",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sys-lock.ps1",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "sys_lock_ps1",
+      "target": "customscripts_sys_lock_invoke_syslock",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sys-sleep.ps1",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "sys_sleep_ps1",
+      "target": "customscripts_sys_sleep_invoke_syssleep",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sysinfo.ps1",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "sysinfo_ps1",
+      "target": "customscripts_sysinfo_invoke_sysinfo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "systemctl.ps1",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "systemctl_ps1",
+      "target": "customscripts_systemctl_invoke_systemctl",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tail.ps1",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "tail_ps1",
+      "target": "customscripts_tail_invoke_tail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "time.ps1",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "time_ps1",
+      "target": "customscripts_time_invoke_time",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "top-proc.ps1",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "top_proc_ps1",
+      "target": "customscripts_top_proc_invoke_topproc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "trash.ps1",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "trash_ps1",
+      "target": "customscripts_trash_invoke_trash",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "unzip.ps1",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "unzip_ps1",
+      "target": "customscripts_unzip_invoke_unzip",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "update.ps1",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "update_ps1",
+      "target": "customscripts_update_update_system",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "uptime.ps1",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "uptime_ps1",
+      "target": "customscripts_uptime_invoke_uptime",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "watch.ps1",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "watch_ps1",
+      "target": "customscripts_watch_invoke_watch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "weather.ps1",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "weather_ps1",
+      "target": "customscripts_weather_invoke_weather",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "whereis.ps1",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "whereis_ps1",
+      "target": "customscripts_whereis_invoke_whereis",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "wifi-pass.ps1",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "wifi_pass_ps1",
+      "target": "customscripts_wifi_pass_show_menu",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "wifi-pass.ps1",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "wifi_pass_ps1",
+      "target": "customscripts_wifi_pass_invoke_wifipass",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "wifi-pass.ps1",
+      "source_location": "L122",
+      "weight": 1.0,
+      "source": "customscripts_wifi_pass_invoke_wifipass",
+      "target": "customscripts_wifi_pass_show_menu",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "wifi-qr.ps1",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "wifi_qr_ps1",
+      "target": "customscripts_wifi_qr_show_menu",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "wifi-qr.ps1",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "wifi_qr_ps1",
+      "target": "customscripts_wifi_qr_invoke_wifiqr",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "wifi-qr.ps1",
+      "source_location": "L122",
+      "weight": 1.0,
+      "source": "customscripts_wifi_qr_invoke_wifiqr",
+      "target": "customscripts_wifi_qr_show_menu",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zip-code.ps1",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "zip_code_ps1",
+      "target": "customscripts_zip_code_invoke_zipcode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "zip.ps1",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "zip_ps1",
+      "target": "customscripts_zip_invoke_zip",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/scrcpy.tests.ps1",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "tests_scrcpy_tests_ps1",
+      "target": "tests_scrcpy_tests_reset_testartifacts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/scrcpy.tests.ps1",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "tests_scrcpy_tests_ps1",
+      "target": "tests_scrcpy_tests_set_testenv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/scrcpy.tests.ps1",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "tests_scrcpy_tests_ps1",
+      "target": "tests_scrcpy_tests_clear_testenv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/scrcpy.tests.ps1",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "tests_scrcpy_tests_ps1",
+      "target": "tests_scrcpy_tests_invoke_wrapper",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/scrcpy.tests.ps1",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "tests_scrcpy_tests_ps1",
+      "target": "tests_scrcpy_tests_assert_equal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/scrcpy.tests.ps1",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "tests_scrcpy_tests_ps1",
+      "target": "tests_scrcpy_tests_assert_match",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/scrcpy.tests.ps1",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "tests_scrcpy_tests_ps1",
+      "target": "tests_scrcpy_tests_read_argslog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/fixtures/fake-adb.ps1",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "tests_fixtures_fake_adb_ps1",
+      "target": "fixtures_fake_adb_write_devicelist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Context.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "context_md",
+      "target": "customscripts_context_customscripts_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Context.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "customscripts_context_customscripts_context",
+      "target": "customscripts_context_overview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Context.md",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "customscripts_context_customscripts_context",
+      "target": "customscripts_context_architecture",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Context.md",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "customscripts_context_customscripts_context",
+      "target": "customscripts_context_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Context.md",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "customscripts_context_customscripts_context",
+      "target": "customscripts_context_the_linux_in_windows_dictionary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Context.md",
+      "source_location": "L108",
+      "weight": 1.0,
+      "source": "customscripts_context_customscripts_context",
+      "target": "customscripts_context_dependencies_managed_by_setup_ps1_deps",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Context.md",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "customscripts_context_customscripts_context",
+      "target": "customscripts_context_bundled_runtime_assets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Context.md",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "customscripts_context_customscripts_context",
+      "target": "customscripts_context_pinned_packages_excluded_from_winget_upgrade",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Context.md",
+      "source_location": "L123",
+      "weight": 1.0,
+      "source": "customscripts_context_customscripts_context",
+      "target": "customscripts_context_changelog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "readme_md",
+      "target": "customscripts_readme_customscripts_arsenal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "customscripts_readme_customscripts_arsenal",
+      "target": "customscripts_readme_highlights",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "customscripts_readme_customscripts_arsenal",
+      "target": "customscripts_readme_why_this_project_exists",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "customscripts_readme_customscripts_arsenal",
+      "target": "customscripts_readme_installation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "customscripts_readme_customscripts_arsenal",
+      "target": "customscripts_readme_setup_commands",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "customscripts_readme_customscripts_arsenal",
+      "target": "customscripts_readme_command_categories",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L144",
+      "weight": 1.0,
+      "source": "customscripts_readme_customscripts_arsenal",
+      "target": "customscripts_readme_how_it_works",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L152",
+      "weight": 1.0,
+      "source": "customscripts_readme_customscripts_arsenal",
+      "target": "customscripts_readme_scrcpy_wrapper",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L170",
+      "weight": 1.0,
+      "source": "customscripts_readme_customscripts_arsenal",
+      "target": "customscripts_readme_linux_to_windows_mental_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L192",
+      "weight": 1.0,
+      "source": "customscripts_readme_customscripts_arsenal",
+      "target": "customscripts_readme_requirements",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L205",
+      "weight": 1.0,
+      "source": "customscripts_readme_customscripts_arsenal",
+      "target": "customscripts_readme_project_structure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L218",
+      "weight": 1.0,
+      "source": "customscripts_readme_customscripts_arsenal",
+      "target": "customscripts_readme_typical_workflow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L234",
+      "weight": 1.0,
+      "source": "customscripts_readme_customscripts_arsenal",
+      "target": "customscripts_readme_license",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "customscripts_readme_installation",
+      "target": "customscripts_readme_codeblock_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "customscripts_readme_installation",
+      "target": "customscripts_readme_codeblock_2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "customscripts_readme_installation",
+      "target": "customscripts_readme_what_setup_ps1_install_does",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "customscripts_readme_setup_commands",
+      "target": "customscripts_readme_codeblock_3",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "customscripts_readme_setup_commands",
+      "target": "customscripts_readme_command_meanings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "customscripts_readme_command_categories",
+      "target": "customscripts_readme_system_and_admin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "customscripts_readme_command_categories",
+      "target": "customscripts_readme_network_and_connectivity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "customscripts_readme_command_categories",
+      "target": "customscripts_readme_files_and_storage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L120",
+      "weight": 1.0,
+      "source": "customscripts_readme_command_categories",
+      "target": "customscripts_readme_terminal_and_productivity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L135",
+      "weight": 1.0,
+      "source": "customscripts_readme_command_categories",
+      "target": "customscripts_readme_developer_utilities",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L164",
+      "weight": 1.0,
+      "source": "customscripts_readme_scrcpy_wrapper",
+      "target": "customscripts_readme_codeblock_4",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L199",
+      "weight": 1.0,
+      "source": "customscripts_readme_requirements",
+      "target": "customscripts_readme_notes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L207",
+      "weight": 1.0,
+      "source": "customscripts_readme_project_structure",
+      "target": "customscripts_readme_codeblock_5",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L220",
+      "weight": 1.0,
+      "source": "customscripts_readme_typical_workflow",
+      "target": "customscripts_readme_codeblock_6",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "63d4713dde8089afbc2c8a0b2be84421e07add7a"
+}

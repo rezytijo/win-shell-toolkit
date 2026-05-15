@@ -1,0 +1,230 @@
+{
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\b64.ps1": {
+    "mtime": 1775885700.7532759,
+    "hash": "866f57e326c352b2bd975eeef5000098"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\check-host.ps1": {
+    "mtime": 1775885720.5855565,
+    "hash": "a3040e76ccb8ec9232beac0d1c6926bb"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\checksum.ps1": {
+    "mtime": 1775885731.7790773,
+    "hash": "79a97278b12d0694836bcb7deb09c560"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\clean-empty.ps1": {
+    "mtime": 1775885700.755641,
+    "hash": "c7d645343fd9aa8a7ef286b82447b525"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\clean-system.ps1": {
+    "mtime": 1775354716.6229985,
+    "hash": "99d66b47e66a121befcf7b235c2201c8"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\clean-wifi.ps1": {
+    "mtime": 1775885700.757149,
+    "hash": "65b8b83411e5faad8d40ab48315ee01c"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\cmds.ps1": {
+    "mtime": 1775354853.060562,
+    "hash": "75e7103e6c104868cfefe946e6e50ac4"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\copy-path.ps1": {
+    "mtime": 1775885700.7576728,
+    "hash": "549f09166065cc19e9887db87f9da1ec"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\df.ps1": {
+    "mtime": 1775355004.5995283,
+    "hash": "af4b62e663fdf12ccd5c602c6f4b0bb7"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\ExportToPdf.ps1": {
+    "mtime": 1775885742.5622003,
+    "hash": "cbb49f5a322138200742ab6630fd1060"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\find-large.ps1": {
+    "mtime": 1776181657.9048862,
+    "hash": "81398b72c4d62edda8b2b388500758d6"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\free.ps1": {
+    "mtime": 1775355006.707983,
+    "hash": "b1802bc46f06418640bb6dae8ad64758"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\gen-pass.ps1": {
+    "mtime": 1776053508.0,
+    "hash": "6a9fc984617a1ac7ae1886f0084d0a30"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\grep.ps1": {
+    "mtime": 1775885700.7603195,
+    "hash": "62a0604d630b01f5872ff7d441e08168"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\hosts.ps1": {
+    "mtime": 1775354851.0379753,
+    "hash": "df1f90dce7cf8ff1a48c6ff30402e863"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\kill-app.ps1": {
+    "mtime": 1775885700.7608285,
+    "hash": "d22dc99f0222bb73245b980b6f59d753"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\kill-port.ps1": {
+    "mtime": 1775885700.761833,
+    "hash": "8d41a881ff4b680c137150c5d75e02be"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\list-ports.ps1": {
+    "mtime": 1775355016.8467915,
+    "hash": "6935fc2c83a9f064db1b8e2e1cbf059d"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\ll.ps1": {
+    "mtime": 1775885700.7646172,
+    "hash": "877157642066b58be92c9207e19a13b5"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\mkcd.ps1": {
+    "mtime": 1775885700.7646172,
+    "hash": "dc09608b7dee205e2a86678c977d180d"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\mkproj.ps1": {
+    "mtime": 1775885700.7670033,
+    "hash": "5e1489be82c55e859b919eb21464fc69"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\myip.ps1": {
+    "mtime": 1775354654.8349667,
+    "hash": "d899a65a59e25f8b3694e404fdcea199"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\nano.ps1": {
+    "mtime": 1775885700.7675064,
+    "hash": "c70e96d9a16625296810153de22c3fc5"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\nc.ps1": {
+    "mtime": 1775885700.7690203,
+    "hash": "f21e904faa136209bc767728ddd659b6"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\pwdc.ps1": {
+    "mtime": 1776181640.016698,
+    "hash": "1a0b2d38b255059ec28f4f1d8ffe1cdb"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\qr.ps1": {
+    "mtime": 1775885700.7700505,
+    "hash": "ad93b507d6d59c3a19e2e2c079920bde"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\reboot-bios.ps1": {
+    "mtime": 1775354745.7079406,
+    "hash": "8dce49d5d93cb0c32a4dd71293833463"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\reset-net.ps1": {
+    "mtime": 1775885700.7710867,
+    "hash": "f3447ddda5aa7937e36d24905b869c01"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\restart-explorer.ps1": {
+    "mtime": 1775354743.6919057,
+    "hash": "c237da1ce3334e79ce93847735133216"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\scrcpy.ps1": {
+    "mtime": 1778874326.1539454,
+    "hash": "0e1b47e7ac50f7843cfae8f3fc8eaee7"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\serve.ps1": {
+    "mtime": 1775885700.7720244,
+    "hash": "aacc48d7340d9d29986a229a9bd02a12"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\setup.ps1": {
+    "mtime": 1775885709.8493872,
+    "hash": "b394ffdbf2a3509e25d78fec295a8675"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\sys-lock.ps1": {
+    "mtime": 1775354747.7291224,
+    "hash": "834563c3d9a51dc9a2fcb122917476bc"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\sys-sleep.ps1": {
+    "mtime": 1775354749.744323,
+    "hash": "a8b7d2b7a9de93e324f8aa7d5ce9c535"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\sysinfo.ps1": {
+    "mtime": 1775354721.6717184,
+    "hash": "89e026193c8b27e1f95fce7c431a78dc"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\systemctl.ps1": {
+    "mtime": 1775885700.773533,
+    "hash": "051ca818a6726a73cbb6a0dae891f16f"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\tail.ps1": {
+    "mtime": 1775885700.7750456,
+    "hash": "7347f9691dbed2908e9ca38aaaf6c1e6"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\time.ps1": {
+    "mtime": 1775885700.77555,
+    "hash": "2c5339d3e7ca11ba78c0dfe6ee40502e"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\top-proc.ps1": {
+    "mtime": 1776181676.3637648,
+    "hash": "80524b2ecdc156ffd5f9ccd449a08c76"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\touch.ps1": {
+    "mtime": 1775885700.7775552,
+    "hash": "bc94175d6426f8b5710c5027a3b2dc7e"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\trash.ps1": {
+    "mtime": 1775885700.779059,
+    "hash": "aef23ee4865c344995db5df0134d4b5d"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\unzip.ps1": {
+    "mtime": 1775885700.7795615,
+    "hash": "7d6618b77b2880badabe680d9d3e93be"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\update.ps1": {
+    "mtime": 1775939124.0,
+    "hash": "a08035981c0d013e6e47d6d29aa55a56"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\uptime.ps1": {
+    "mtime": 1776181630.063925,
+    "hash": "225c3762445ceef1c386ba5c4400d8fc"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\watch.ps1": {
+    "mtime": 1775885700.7821,
+    "hash": "8adbbb5aa1526469a012deb467b53b0a"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\weather.ps1": {
+    "mtime": 1776181325.5875874,
+    "hash": "3297d1629f6d1032ae0e966a8669de17"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\whereis.ps1": {
+    "mtime": 1775885700.784606,
+    "hash": "abca37ed9e8c035bcae895441a938e4e"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\wifi-pass.ps1": {
+    "mtime": 1775885700.7866063,
+    "hash": "dc98e921e5bad1ea5d7e9d18bb1c96a3"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\wifi-qr.ps1": {
+    "mtime": 1775354692.4144447,
+    "hash": "2e070f33fe586094576f6754dcd03158"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\zip-code.ps1": {
+    "mtime": 1775885700.788114,
+    "hash": "17248606426e6746a8633b8675a71f42"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\zip.ps1": {
+    "mtime": 1775885700.788114,
+    "hash": "0ec0cef1dce8cd44ba747b246d79417e"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\tests\\scrcpy.tests.ps1": {
+    "mtime": 1778874242.3280337,
+    "hash": "1e25d824e79228f6e8ea07a7ef641308"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\tests\\fixtures\\fake-adb.ps1": {
+    "mtime": 1778874140.9683537,
+    "hash": "cd44b27e83d72f2c6ebecb5f0d6b8a7c"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\tests\\fixtures\\fake-scrcpy.ps1": {
+    "mtime": 1778874140.910325,
+    "hash": "a63ed9e8e3f11a980774a077af6d3671"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\Context.md": {
+    "mtime": 1778874796.7567613,
+    "hash": "aee1a9d9af721d584c088c4231a28f24"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\README.md": {
+    "mtime": 1778874796.8539653,
+    "hash": "1147fade213d6b28e7d01e8c9adf9d21"
+  },
+  "C:\\Users\\rezy0\\OneDrive - Kementerian Komunikasi dan Informatika\\Documents\\CustomScripts\\graphify-out-old\\graph.html": {
+    "mtime": 1778212890.8730903,
+    "hash": "4334228c44a4584776333b608c6c68a8"
+  }
+}

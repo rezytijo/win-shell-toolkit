@@ -3,11 +3,13 @@
 ## Overview
 Collection of PowerShell and Batch utility scripts for system administration tasks.
 Scripts are registered as PowerShell profile functions via `setup.ps1` for quick access.
+The repo now also bundles a local `scrcpy` launcher with an interactive wrapper for Android USB and wireless mirroring.
 
 ## Architecture
 - **Entry Point**: `setup.ps1` -- manages dependency installation + profile alias registration
 - **Invocation Pattern**: `.bat` wrappers call `.ps1` scripts via `powershell -NoProfile -ExecutionPolicy Bypass`
 - **Profile Integration**: Scripts registered as functions in `$PROFILE` using invoke operator (`&`) with `@args` forwarding
+- **Bundled Tooling**: `scrcpy.ps1` dynamically resolves `.\scrcpy\scrcpy.exe` and `.\scrcpy\adb.exe` from `$PSScriptRoot`, so no user-specific absolute path is required
 
 ## Scripts
 
@@ -66,6 +68,7 @@ Scripts are registered as PowerShell profile functions via `setup.ps1` for quick
 | `tail.ps1` | Linux `tail`, monitors end of a file cleanly (`-f` auto-updates) | `Get-Content -Tail -Wait` |
 | `nano.ps1` | Linux `nano`, securely edits protected files as Administrator | `Start-Process -Verb RunAs` |
 | `cmds.ps1` | Interactive cheat-sheet, actively reads this Context.md file | `Get-Content` regex parsing |
+| `scrcpy.ps1` | Interactive Android mirroring launcher for USB, USB-bootstrapped wireless, and manual TCP/IP with per-run audio selection | Bundled `.\scrcpy\scrcpy.exe`, bundled `.\scrcpy\adb.exe` |
 
 ## The "Linux in Windows" Dictionary
 *A comparison guide showing how our terminal Arsenal perfectly mimics daily Linux operations.*
@@ -108,12 +111,17 @@ Scripts are registered as PowerShell profile functions via `setup.ps1` for quick
 - **Ookla.Speedtest.CLI** (winget/manual fallback) -- managed by `setup.ps1`
 - **Microsoft Print to PDF** (Windows Feature) -- for `ExportToPdf.ps1`
 
+## Bundled Runtime Assets
+- `scrcpy/` -- bundled `scrcpy` release including `scrcpy.exe`, `adb.exe`, server assets, and required DLLs
+- `platform-tools/` -- standalone Android platform tools kept alongside the scripts
+
 ## Pinned Packages (excluded from winget upgrade)
 - `Parsec.Parsec`
 - `Spotify.Spotify`
 - `Tonec.InternetDownloadManager`
 
 ## Changelog
+- **16 May 2026 09:00** -- Added `scrcpy.ps1` v1.0.0 interactive wrapper around the bundled `scrcpy` release. The launcher now detects connected Android devices, offers USB or wireless modes, prompts for per-run audio behavior, supports raw argument pass-through, and keeps all binary resolution relative to `$PSScriptRoot` to avoid user-specific absolute paths. Added regression tests for passthrough, no-device handling, unauthorized devices, USB audio flags, and manual TCP/IP launch.
 - **14 April 2026 22:48** -- Global AST Syntax Hardening: Fixed residual parsing issues discovered via compiler testing. Corrected string-escaping/variable-parsing in `uptime.ps1`, removed un-encoded emoji literals from `pwdc.ps1` to prevent Windows-1252 parsing drops, and corrected `param()` block positioning for `find-large.ps1` and `top-proc.ps1` to eliminate `CommandNotFoundException` issues similar to `weather.ps1`.
 - **14 April 2026 22:41** -- `weather.ps1` v1.2.2: Fixed PowerShell syntax error where `param()` block was not the first executable statement. Moved the newly added global error handling (`$ErrorActionPreference = 'Stop'`) below the parameters block to resolve the `CommandNotFoundException` on execution.
 - **05 April 2026 10:15** -- Mass Standardization of Error Handling: Applied `$ErrorActionPreference = 'Stop'` and global `try/catch` wrappers across all 49+ scripts in the arsenal (Batches 1-4). This ensures that failures are caught gracefully, providing color-coded feedback and proper exit codes (`exit 1`) for pipeline stability. Every script now follows a unified, robust execution pattern.

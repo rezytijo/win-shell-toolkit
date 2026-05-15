@@ -1,0 +1,5 @@
+.git/
+graphify-out/
+tests/artifacts/
+platform-tools/
+scrcpy/

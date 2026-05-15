@@ -13,7 +13,6 @@ desktop.ini
 *.tmp
 *.bak
 *.db
-*.json
 *.csv
 
 # IDE / Editor Files
@@ -34,6 +33,30 @@ desktop.ini
 .codex/sessions/
 .codex/history.jsonl
 .google/
+
+# Test artifacts
+tests/artifacts/
+
+# Graphify working files
+.graphify_*.json
+.graphify_*.txt
+.graphify_ast.json
+.graphify_detect.json
+.graphify_extract.json
+.graphify_semantic.json
+.graphify_analysis.json
+.graphify_labels.json
+.graphify_old.json
+graphify-out/cache/
+graphify-out/.graphify_*
+graphify-out/memory/
+graphify-out-old/
+
+# Keep published graphify outputs
+!graphify-out/
+!graphify-out/*.json
+!graphify-out/*.md
+!graphify-out/*.html
 
 # --- Bat Shims Management ---
 # Ignore all .bat because most are auto-generated from setup.ps1
