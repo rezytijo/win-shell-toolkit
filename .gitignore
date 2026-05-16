@@ -35,7 +35,11 @@ desktop.ini
 .google/
 
 # Test artifacts
-tests/artifacts/
+tests/*
+
+# Locally downloaded runtimes
+scrcpy/
+platform-tools/
 
 # Graphify working files
 .graphify_*.json
@@ -66,4 +70,4 @@ graphify-out-old/
 !export-to-pdf.bat
 
 # JANGAN IGNORE Context.md (Dibutuhkan oleh perintah 'cmds')
-!Context.md
+Context.md

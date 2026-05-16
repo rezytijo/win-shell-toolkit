@@ -11,7 +11,8 @@ This repository packages daily-use commands for system maintenance, networking, 
 - Built-in maintenance tools for networking, cleanup, hardware info, and service/process management
 - Productivity helpers for QR generation, password generation, clipboard workflows, and quick file operations
 - Project and developer utilities such as `mkproj`, `serve`, `zip-code`, and `cmds`
-- Android mirroring via an interactive `scrcpy` wrapper that can switch between USB and wireless sessions
+- Android mirroring via an interactive `scrcpy` wrapper that installs the official Windows release into `Program Files`
+- Android platform-tools are downloaded from Google into `Program Files` and added to the system `PATH`
 - Automatic detection of required dependencies, including Windows features and `Sudo for Windows` when available
 
 ## Why This Project Exists
@@ -42,6 +43,8 @@ The goal is simple: fewer repetitive keystrokes, less hunting through GUI settin
 - Checks system dependencies
 - Creates `.bat` shims for CMD compatibility
 - Registers all scripts as PowerShell functions in your profile
+- Downloads and installs the official Windows `scrcpy` release into the correct `Program Files` directory
+- Downloads and installs official Android platform-tools from Google into `Program Files`
 - Enables supported Windows features when possible
 - Enables `Sudo for Windows` in `forceNewWindow` mode when `sudo.exe` is available and setup is run as Administrator
 
@@ -147,23 +150,24 @@ The goal is simple: fewer repetitive keystrokes, less hunting through GUI settin
 - `.bat` files act as CMD launchers for the same tools
 - `setup.ps1` manages dependency checks, profile registration, and shim generation
 - `Context.md` acts as the internal command reference used by `cmds`
-- `scrcpy.ps1` resolves the bundled Android tooling relative to its own script directory, so the command remains portable across Windows user profiles
+- `scrcpy.ps1` resolves Android tooling from the managed installs under `Program Files`, so the command stays portable without user-specific paths
 
 ## scrcpy Wrapper
 
-The repository includes a root-level `scrcpy.ps1` wrapper plus a bundled `scrcpy/` runtime. When launched without arguments, it:
+The repository includes a root-level `scrcpy.ps1` launcher. `setup.ps1` installs the official Windows `scrcpy` release from the upstream GitHub releases page into `Program Files` or `Program Files (x86)` depending on OS architecture, adds that install directory to the system `PATH`, and keeps the wrapper menu-first. By default it:
 
 - detects Android devices via the bundled `adb.exe`
 - lets you choose USB, wireless via USB bootstrap, or manual `IP:port`
+- lets you choose a video profile tuned for quality, balanced use, livestreaming, or low-end devices
 - lets you choose audio forwarding, audio duplication, or no audio for that run
 
-When launched with raw arguments, it passes them straight through to the bundled `scrcpy.exe`.
+Direct access to the installed `scrcpy.exe` is still available, but only through explicit raw mode.
 
 Examples:
 
 ```powershell
 scrcpy
-scrcpy --fullscreen --video-bit-rate=12M
+scrcpy --raw --fullscreen --video-bit-rate=12M
 .\scrcpy.ps1 --version
 ```
 
@@ -209,8 +213,8 @@ CustomScripts/
 |- *.ps1        # Main PowerShell commands
 |- *.bat        # CMD shims or wrappers
 |- setup.ps1    # Setup, dependency checks, alias registration
-|- scrcpy.ps1   # Interactive launcher for bundled scrcpy + adb
-|- scrcpy/      # Bundled scrcpy runtime files
+|- scrcpy.ps1   # Interactive launcher for installed scrcpy + adb
+|- lib/         # Internal shared helpers such as scrcpy installer logic
 |- Context.md   # Internal command dictionary
 |- README.md    # Public project documentation
 ```

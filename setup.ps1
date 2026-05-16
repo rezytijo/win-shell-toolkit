@@ -12,6 +12,8 @@ $ErrorActionPreference = 'Stop'
 
 # Get the directory where this script is running (works on any PC)
 $ScriptDir = $PSScriptRoot
+. (Join-Path $ScriptDir 'lib\scrcpy-install.ps1')
+. (Join-Path $ScriptDir 'lib\platform-tools-install.ps1')
 
 # Path to PowerShell profile
 $ProfilePath = $PROFILE
@@ -107,7 +109,7 @@ function Install-Dependencies {
     $isAdmin = Test-IsAdministrator
 
     # --- [1] PowerShell Modules ---
-    Write-Host "[1/3] PowerShell Modules" -ForegroundColor Yellow
+    Write-Host "[1/4] PowerShell Modules" -ForegroundColor Yellow
 
     $requiredModules = @(
         @{
@@ -140,7 +142,7 @@ function Install-Dependencies {
     Write-Host ""
 
     # --- [2] System Tools (winget packages) ---
-    Write-Host "[2/3] System Tools (Winget)" -ForegroundColor Yellow
+    Write-Host "[2/5] System Tools (Winget)" -ForegroundColor Yellow
     $wingetAvailable = Get-Command winget -ErrorAction SilentlyContinue
     if (-not $wingetAvailable) {
         Write-Warning "  winget is not available."
@@ -160,8 +162,42 @@ function Install-Dependencies {
     }
     Write-Host ""
 
-    # --- [3] Windows Features ---
-    Write-Host "[3/3] Windows Features" -ForegroundColor Yellow
+    # --- [3] Android Platform-Tools ---
+    Write-Host "[3/5] Android Platform-Tools" -ForegroundColor Yellow
+    try {
+        $platformToolsAdb = Get-PlatformToolsAdbPath -AllowMissing
+        if ($platformToolsAdb) {
+            Write-Host "  [OK] platform-tools already installed at $(Split-Path $platformToolsAdb -Parent)" -ForegroundColor DarkGray
+        } elseif ($isAdmin) {
+            $platformToolsResult = Install-PlatformToolsRuntime
+            Write-Host "  [OK] platform-tools installed to $($platformToolsResult.InstallRoot)" -ForegroundColor Green
+        } else {
+            Write-Host "  [Required] platform-tools is missing. Re-run setup as Administrator to install it into Program Files." -ForegroundColor White
+        }
+    } catch {
+        Write-Warning "  Failed to install platform-tools: $($_.Exception.Message)"
+    }
+    Write-Host ""
+
+    # --- [4] scrcpy Runtime ---
+    Write-Host "[4/5] scrcpy Runtime" -ForegroundColor Yellow
+    try {
+        $installedVersion = Get-ScrcpyInstalledVersion
+        if ($installedVersion) {
+            Write-Host "  [OK] scrcpy v$installedVersion -- already installed" -ForegroundColor DarkGray
+        } elseif ($isAdmin) {
+            $installResult = Install-ScrcpyRuntime
+            Write-Host "  [OK] scrcpy $($installResult.Version) installed to $($installResult.InstallRoot)" -ForegroundColor Green
+        } else {
+            Write-Host "  [Required] scrcpy runtime is missing. Re-run setup as Administrator to install it into Program Files." -ForegroundColor White
+        }
+    } catch {
+        Write-Warning "  Failed to install scrcpy runtime: $($_.Exception.Message)"
+    }
+    Write-Host ""
+
+    # --- [5] Windows Features ---
+    Write-Host "[5/5] Windows Features" -ForegroundColor Yellow
     try {
         if ($isAdmin) {
             $state = Get-WindowsOptionalFeature -Online -FeatureName 'Printing-PrintToPDFServices-Features' -ErrorAction Stop
@@ -195,6 +231,22 @@ function Update-Dependencies {
         } catch {
             Write-Host "Failed or Not Installed" -ForegroundColor Red
         }
+    }
+    Write-Host "  [Updating] platform-tools runtime ... " -NoNewline -ForegroundColor Yellow
+    try {
+        $platformToolsResult = Install-PlatformToolsRuntime
+        Write-Host "OK ($($platformToolsResult.InstallRoot))" -ForegroundColor Green
+    } catch {
+        Write-Host "Failed" -ForegroundColor Red
+        Write-Warning "  Failed to update platform-tools runtime: $($_.Exception.Message)"
+    }
+    Write-Host "  [Updating] scrcpy runtime ... " -NoNewline -ForegroundColor Yellow
+    try {
+        $result = Install-ScrcpyRuntime
+        Write-Host "OK ($($result.Version))" -ForegroundColor Green
+    } catch {
+        Write-Host "Failed" -ForegroundColor Red
+        Write-Warning "  Failed to update scrcpy runtime: $($_.Exception.Message)"
     }
     Write-Host ""
 }

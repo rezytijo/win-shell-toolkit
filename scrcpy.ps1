@@ -1,5 +1,5 @@
-# scrcpy.ps1 -- Interactive wrapper for bundled scrcpy + adb
-# 2026-05-16 -- v1.0.0: USB/wireless launcher with per-run audio selection
+# scrcpy.ps1 -- Interactive wrapper for installed scrcpy + adb
+# 2026-05-16 -- v1.1.0: USB/wireless launcher backed by installed scrcpy runtime
 
 param(
     [Parameter(ValueFromRemainingArguments = $true)]
@@ -7,23 +7,44 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot 'lib\scrcpy-install.ps1')
+
+function Show-WrapperHelp {
+    Write-Host 'scrcpy - interactive Android remote launcher' -ForegroundColor Cyan
+    Write-Host ''
+    Write-Host 'Usage:'
+    Write-Host '  scrcpy'
+    Write-Host '      Open the interactive device launcher.'
+    Write-Host ''
+    Write-Host '  scrcpy --raw <scrcpy arguments>'
+    Write-Host '      Forward arguments directly to the installed scrcpy binary.'
+    Write-Host ''
+    Write-Host '  scrcpy --version'
+    Write-Host '      Show installed scrcpy version.'
+    Write-Host ''
+    Write-Host '  scrcpy --help'
+    Write-Host '      Show this wrapper help.'
+}
 
 function Get-WrapperPath {
     param(
         [string]$OverrideValue,
-        [string]$DefaultRelativePath,
         [string]$Label
     )
 
-    $candidate = if ($OverrideValue) { $OverrideValue } else { Join-Path $PSScriptRoot $DefaultRelativePath }
+    $candidate = $OverrideValue
     if (-not (Test-Path -LiteralPath $candidate)) {
-        throw "Missing bundled ${Label}: $candidate"
+        throw "Missing ${Label}: $candidate"
     }
 
     return (Resolve-Path -LiteralPath $candidate).Path
 }
 
 function Get-QueuedInput {
+    if (-not (Get-Variable -Name QueuedInputsInitialized -Scope Script -ErrorAction SilentlyContinue)) {
+        $script:QueuedInputsInitialized = $false
+    }
+
     if (-not $script:QueuedInputsInitialized) {
         $script:QueuedInputsInitialized = $true
         $script:QueuedInputs = New-Object System.Collections.Generic.Queue[string]
@@ -60,7 +81,8 @@ function Invoke-Tool {
     )
 
     $output = & $Executable @ArgumentList 2>&1
-    $exitCode = if ($null -ne $LASTEXITCODE) { $LASTEXITCODE } else { 0 }
+    $lastExit = Get-Variable -Name LASTEXITCODE -Scope Global -ErrorAction SilentlyContinue
+    $exitCode = if ($lastExit) { [int]$lastExit.Value } else { 0 }
 
     return [PSCustomObject]@{
         Output   = @($output)
@@ -76,7 +98,8 @@ function Invoke-Scrcpy {
     )
 
     & $Executable @ArgumentList
-    $exitCode = if ($null -ne $LASTEXITCODE) { $LASTEXITCODE } else { 0 }
+    $lastExit = Get-Variable -Name LASTEXITCODE -Scope Global -ErrorAction SilentlyContinue
+    $exitCode = if ($lastExit) { [int]$lastExit.Value } else { 0 }
 
     if ($exitCode -ne 0 -and $DuplicationRequested) {
         Write-Host ''
@@ -110,10 +133,11 @@ function Parse-AdbDeviceLine {
 
     $serial = $tokens[0]
     $state = $tokens[1]
+    $isTcpEndpoint = $serial -match '^\d{1,3}(\.\d{1,3}){3}:\d+$'
     $transport = if ($meta.ContainsKey('transport_id')) { $meta['transport_id'] } else { '-' }
     $model = if ($meta.ContainsKey('model')) { $meta['model'] -replace '_', ' ' } else { '-' }
-    $connection = if ($meta.ContainsKey('usb')) { "USB $($meta['usb'])" } elseif ($serial -match '^\d{1,3}(\.\d{1,3}){3}:\d+$') { 'TCP/IP' } else { '-' }
-    $isUsb = $meta.ContainsKey('usb')
+    $connection = if ($meta.ContainsKey('usb')) { "USB $($meta['usb'])" } elseif ($isTcpEndpoint) { 'TCP/IP' } else { 'USB / local adb' }
+    $isUsb = $meta.ContainsKey('usb') -or (-not $isTcpEndpoint)
 
     return [PSCustomObject]@{
         Serial     = $serial
@@ -122,6 +146,7 @@ function Parse-AdbDeviceLine {
         Transport  = $transport
         Connection = $connection
         IsUsb      = $isUsb
+        IsTcpip    = $isTcpEndpoint
     }
 }
 
@@ -163,6 +188,25 @@ function Show-DeviceList {
     }
 }
 
+function Show-NoDeviceMenu {
+    Write-Host ''
+    Write-Host 'No Android devices detected yet.' -ForegroundColor Yellow
+    Write-Host 'Choose how to continue:' -ForegroundColor Cyan
+    Write-Host '  [1] Re-scan USB / adb devices'
+    Write-Host '  [2] Connect wirelessly with IP:port'
+    Write-Host '  [3] Exit'
+
+    while ($true) {
+        $raw = Read-MenuInput -Prompt 'Choose an option'
+        switch ($raw) {
+            '1' { return 'rescan' }
+            '2' { return 'manual-wireless' }
+            '3' { return 'exit' }
+            default { Write-Host 'Enter 1, 2, or 3.' -ForegroundColor Yellow }
+        }
+    }
+}
+
 function Select-Device {
     param(
         [object[]]$Devices
@@ -184,15 +228,13 @@ function Get-ConnectionMode {
     Write-Host 'Connection mode:' -ForegroundColor Cyan
     Write-Host '  [1] USB'
     Write-Host '  [2] Wireless via USB bootstrap'
-    Write-Host '  [3] Wireless via manual IP:port'
 
     while ($true) {
         $raw = Read-MenuInput -Prompt 'Choose connection mode'
         switch ($raw) {
             '1' { return 'usb' }
             '2' { return 'wireless-bootstrap' }
-            '3' { return 'wireless-manual' }
-            default { Write-Host 'Enter 1, 2, or 3.' -ForegroundColor Yellow }
+            default { Write-Host 'Enter 1 or 2.' -ForegroundColor Yellow }
         }
     }
 }
@@ -215,6 +257,46 @@ function Get-AudioSelection {
     }
 }
 
+function Get-VideoProfileSelection {
+    Write-Host ''
+    Write-Host 'Video profile:' -ForegroundColor Cyan
+    Write-Host '  [1] Quality      - 8M, native size, 60 fps'
+    Write-Host '  [2] Balanced     - 6M, 1920 max-size, 30 fps'
+    Write-Host '  [3] Livestream   - 6M, 1600 max-size, 30 fps'
+    Write-Host '  [4] Low-end      - 4M, 1280 max-size, 30 fps'
+
+    while ($true) {
+        $raw = Read-MenuInput -Prompt 'Choose video profile'
+        switch ($raw) {
+            '1' {
+                return [PSCustomObject]@{
+                    Name = 'Quality'
+                    Args = @('--video-bit-rate=8M', '--max-fps=60')
+                }
+            }
+            '2' {
+                return [PSCustomObject]@{
+                    Name = 'Balanced'
+                    Args = @('--video-bit-rate=6M', '--max-size=1920', '--max-fps=30')
+                }
+            }
+            '3' {
+                return [PSCustomObject]@{
+                    Name = 'Livestream'
+                    Args = @('--video-bit-rate=6M', '--max-size=1600', '--max-fps=30')
+                }
+            }
+            '4' {
+                return [PSCustomObject]@{
+                    Name = 'Low-end'
+                    Args = @('--video-bit-rate=4M', '--max-size=1280', '--max-fps=30')
+                }
+            }
+            default { Write-Host 'Enter 1, 2, 3, or 4.' -ForegroundColor Yellow }
+        }
+    }
+}
+
 function Assert-ReadyDevice {
     param(
         [object]$Device
@@ -233,6 +315,7 @@ function Assert-ReadyDevice {
         }
     }
 }
+
 
 function Get-ManualEndpoint {
     while ($true) {
@@ -260,29 +343,123 @@ function Connect-AdbTcpEndpoint {
     return $Endpoint
 }
 
+function Get-DeviceFromEndpoint {
+    param(
+        [string]$Endpoint
+    )
+
+    return [PSCustomObject]@{
+        Serial     = $Endpoint
+        State      = 'device'
+        Model      = 'Wireless device'
+        Transport  = '-'
+        Connection = 'TCP/IP'
+        IsUsb      = $false
+        IsTcpip    = $true
+    }
+}
+
 function Resolve-DeviceWifiIp {
     param(
         [string]$AdbExecutable,
         [string]$Serial
     )
 
+    function Find-Ipv4InText {
+        param(
+            [string]$Text
+        )
+
+        if ([string]::IsNullOrWhiteSpace($Text)) { return $null }
+
+        # Patterns prioritized by reliability
+        $patterns = @(
+            '\binet\s+(\d{1,3}(?:\.\d{1,3}){3})(?:/\d+)?\b',
+            '\binet addr:(\d{1,3}(?:\.\d{1,3}){3})\b',
+            '\bsrc\s+(\d{1,3}(?:\.\d{1,3}){3})\b',
+            '\b(\d{1,3}(?:\.\d{1,3}){3})\b'
+        )
+
+        foreach ($p in $patterns) {
+            $regex = [regex]::new($p, 'IgnoreCase')
+            $matches = $regex.Matches($Text)
+            foreach ($m in $matches) {
+                $ip = $m.Groups[1].Value
+                # Skip loopback, self-assigned (APIPA), and zero address
+                if ($ip -ne '127.0.0.1' -and $ip -ne '0.0.0.0' -and $ip -notmatch '^169\.254\.') {
+                    return $ip
+                }
+            }
+        }
+
+        return $null
+    }
+
+    # Attempt 1: Specific interface and routing
     $attempts = @(
-        @('-s', $Serial, 'shell', 'ip', 'route'),
-        @('-s', $Serial, 'shell', 'getprop', 'dhcp.wlan0.ipaddress'),
-        @('-s', $Serial, 'shell', 'getprop', 'dhcp.wifi.ipaddress')
+        @('-s', $Serial, 'shell', 'ip', '-f', 'inet', 'addr', 'show', 'wlan0'),
+        @('-s', $Serial, 'shell', 'ip', '-f', 'inet', 'addr', 'show'),
+        @('-s', $Serial, 'shell', 'ip', 'route', 'get', '1.1.1.1'),
+        @('-s', $Serial, 'shell', 'ip', 'route')
     )
 
     foreach ($args in $attempts) {
         $result = Invoke-Tool -Executable $AdbExecutable -ArgumentList $args
         $text = ($result.Output | Out-String).Trim()
-        if ($text -match '\bsrc\s+(\d{1,3}(?:\.\d{1,3}){3})\b') {
-            return $matches[1]
-        }
-
-        if ($text -match '^\d{1,3}(\.\d{1,3}){3}$') {
-            return $text
+        $ipAddress = Find-Ipv4InText -Text $text
+        if ($ipAddress) {
+            return $ipAddress
         }
     }
+
+    # Attempt 2: All properties containing 'ip' and a valid address
+    $propResult = Invoke-Tool -Executable $AdbExecutable -ArgumentList @('-s', $Serial, 'shell', 'getprop')
+    foreach ($line in $propResult.Output) {
+        if ($line -match '\[.*ip.*\]: \[(\d{1,3}(?:\.\d{1,3}){3})\]') {
+            $ip = $matches[1]
+            if ($ip -ne '0.0.0.0' -and $ip -ne '127.0.0.1' -and $ip -notmatch '^169\.254\.') {
+                return $ip
+            }
+        }
+    }
+
+    # Attempt 3: Interface fallbacks
+    $wifiInterfaceResult = Invoke-Tool -Executable $AdbExecutable -ArgumentList @('-s', $Serial, 'shell', 'getprop', 'wifi.interface')
+    $wifiInterface = (($wifiInterfaceResult.Output | Out-String).Trim())
+    if (-not $wifiInterface -or $wifiInterface -match '\s') {
+        $wifiInterface = 'wlan0'
+    }
+
+    $interfaceAttempts = @(
+        @('-s', $Serial, 'shell', 'ip', '-f', 'inet', 'addr', 'show', $wifiInterface),
+        @('-s', $Serial, 'shell', 'ifconfig', $wifiInterface),
+        @('-s', $Serial, 'shell', 'ifconfig'),
+        @('-s', $Serial, 'shell', 'netcfg')
+    )
+
+    foreach ($args in $interfaceAttempts) {
+        $result = Invoke-Tool -Executable $AdbExecutable -ArgumentList $args
+        $text = ($result.Output | Out-String).Trim()
+        $ipAddress = Find-Ipv4InText -Text $text
+        if ($ipAddress) {
+            return $ipAddress
+        }
+    }
+
+    # Final attempt: Show diagnostics if failed
+    Write-Host "`n[DIAGNOSTIC] IP discovery failed. Printing raw device network info..." -ForegroundColor Yellow
+    
+    Write-Host "`n--- adb shell ip -f inet addr show ---" -ForegroundColor Gray
+    $debugIp = Invoke-Tool -Executable $AdbExecutable -ArgumentList @('-s', $Serial, 'shell', 'ip', '-f', 'inet', 'addr', 'show')
+    $debugIp.Output | Write-Host -ForegroundColor Gray
+
+    Write-Host "`n--- adb shell ip route ---" -ForegroundColor Gray
+    $debugRoute = Invoke-Tool -Executable $AdbExecutable -ArgumentList @('-s', $Serial, 'shell', 'ip', 'route')
+    $debugRoute.Output | Write-Host -ForegroundColor Gray
+
+    Write-Host "`n--- relevant getprop values ---" -ForegroundColor Gray
+    $debugProps = Invoke-Tool -Executable $AdbExecutable -ArgumentList @('-s', $Serial, 'shell', 'getprop')
+    $debugProps.Output | Where-Object { $_ -match 'ip|wifi|wlan' } | Write-Host -ForegroundColor Gray
 
     throw 'Unable to determine the device Wi-Fi IP address for wireless bootstrap.'
 }
@@ -293,62 +470,123 @@ function Start-WirelessBootstrap {
         [object]$Device
     )
 
-    if (-not $Device.IsUsb) {
-        throw 'Wireless bootstrap requires a USB-connected device.'
+    if ($Device.IsTcpip) {
+        throw 'Wireless bootstrap requires a locally attached device, not an existing TCP/IP endpoint.'
     }
 
+    Write-Host "Enabling TCP/IP mode on port 5555..." -ForegroundColor Gray
     $tcpipResult = Invoke-Tool -Executable $AdbExecutable -ArgumentList @('-s', $Device.Serial, 'tcpip', '5555')
     if ($tcpipResult.ExitCode -ne 0) {
-        throw "Failed to enable TCP/IP mode on $($Device.Serial). adb said: $(($tcpipResult.Output | Out-String).Trim())"
+        throw "Failed to enable TCP/IP mode on $($Device.Serial). Make sure the phone is connected locally over USB and authorized for debugging. adb said: $(($tcpipResult.Output | Out-String).Trim())"
     }
 
+    # Wait for device to reconnect and stabilize after mode switch
+    Invoke-Tool -Executable $AdbExecutable -ArgumentList @('-s', $Device.Serial, 'wait-for-device') | Out-Null
+    Start-Sleep -Seconds 1
+
     $ipAddress = Resolve-DeviceWifiIp -AdbExecutable $AdbExecutable -Serial $Device.Serial
+    Write-Host "Detected device IP: $ipAddress" -ForegroundColor Green
     $endpoint = "$ipAddress`:5555"
 
     Connect-AdbTcpEndpoint -AdbExecutable $AdbExecutable -Endpoint $endpoint | Out-Null
     return $endpoint
 }
 
+if ($env:SCRCPY_WRAPPER_SKIP_MAIN -ne '1') {
 try {
-    $scrcpyExe = Get-WrapperPath -OverrideValue $env:SCRCPY_WRAPPER_SCRCPY_EXE -DefaultRelativePath 'scrcpy\scrcpy.exe' -Label 'scrcpy binary'
-    $adbExe = Get-WrapperPath -OverrideValue $env:SCRCPY_WRAPPER_ADB_EXE -DefaultRelativePath 'scrcpy\adb.exe' -Label 'adb binary'
+    if ($null -ne $Arguments -and $Arguments.Length -gt 0) {
+        $firstArg = $Arguments[0]
+        switch ($firstArg) {
+            '--help' {
+                Show-WrapperHelp
+                exit 0
+            }
+            '-h' {
+                Show-WrapperHelp
+                exit 0
+            }
+            '--version' {
+                $scrcpyExe = Get-WrapperPath -OverrideValue (Get-ScrcpyExecutablePath) -Label 'scrcpy binary'
+                & $scrcpyExe '--version'
+                $lastExit = Get-Variable -Name LASTEXITCODE -Scope Global -ErrorAction SilentlyContinue
+                $exitCode = if ($lastExit) { [int]$lastExit.Value } else { 0 }
+                exit $exitCode
+            }
+            '--raw' {
+                $rawArgs = @($Arguments | Select-Object -Skip 1)
+                if ($rawArgs.Count -eq 0) {
+                    throw 'Missing arguments after --raw. Example: scrcpy --raw --fullscreen'
+                }
 
-    if ($Arguments.Count -gt 0) {
-        & $scrcpyExe @Arguments
-        exit $LASTEXITCODE
+                $scrcpyExe = Get-WrapperPath -OverrideValue (Get-ScrcpyExecutablePath) -Label 'scrcpy binary'
+                & $scrcpyExe @rawArgs
+                $lastExit = Get-Variable -Name LASTEXITCODE -Scope Global -ErrorAction SilentlyContinue
+                $exitCode = if ($lastExit) { [int]$lastExit.Value } else { 0 }
+                exit $exitCode
+            }
+            default {
+                Show-WrapperHelp
+                Write-Host ''
+                throw "Unknown wrapper argument: $firstArg. Run 'scrcpy' with no arguments for the interactive launcher, or use '--raw' for direct scrcpy flags."
+            }
+        }
     }
 
-    $devices = @(Get-AdbDevices -AdbExecutable $adbExe)
-    if ($devices.Count -eq 0) {
-        Write-Host 'No Android devices were found. Connect a phone over USB or run `adb connect <ip:port>` first.' -ForegroundColor Yellow
-        exit 1
+    $scrcpyExe = Get-WrapperPath -OverrideValue (Get-ScrcpyExecutablePath) -Label 'scrcpy binary'
+    $adbExe = Get-WrapperPath -OverrideValue (Get-ScrcpyAdbPath) -Label 'adb binary'
+
+    $selectedDevice = $null
+    $targetSerial = $null
+
+    while (-not $selectedDevice) {
+        $devices = @(Get-AdbDevices -AdbExecutable $adbExe)
+        if ($devices.Count -gt 0) {
+            Show-DeviceList -Devices $devices
+            $selectedDevice = Select-Device -Devices $devices
+            Assert-ReadyDevice -Device $selectedDevice
+            break
+        }
+
+        $noDeviceAction = Show-NoDeviceMenu
+        switch ($noDeviceAction) {
+            'rescan' {
+                continue
+            }
+            'manual-wireless' {
+                $targetSerial = Get-ManualEndpoint
+                Connect-AdbTcpEndpoint -AdbExecutable $adbExe -Endpoint $targetSerial | Out-Null
+                $selectedDevice = Get-DeviceFromEndpoint -Endpoint $targetSerial
+            }
+            'exit' {
+                Write-Host 'Exiting without starting scrcpy.' -ForegroundColor Yellow
+                exit 1
+            }
+        }
     }
 
-    Show-DeviceList -Devices $devices
-    $selectedDevice = Select-Device -Devices $devices
-    Assert-ReadyDevice -Device $selectedDevice
+    if (-not $targetSerial) {
+        $connectionMode = Get-ConnectionMode
+        $targetSerial = $selectedDevice.Serial
 
-    $connectionMode = Get-ConnectionMode
-    $targetSerial = $selectedDevice.Serial
-
-    switch ($connectionMode) {
-        'usb' {
-            $targetSerial = $selectedDevice.Serial
-        }
-        'wireless-bootstrap' {
-            $targetSerial = Start-WirelessBootstrap -AdbExecutable $adbExe -Device $selectedDevice
-        }
-        'wireless-manual' {
-            $targetSerial = Get-ManualEndpoint
-            Connect-AdbTcpEndpoint -AdbExecutable $adbExe -Endpoint $targetSerial | Out-Null
+        switch ($connectionMode) {
+            'usb' {
+                Write-Host 'Switching to USB mode (clearing wireless sessions)...' -ForegroundColor Gray
+                Invoke-Tool -Executable $adbExe -ArgumentList @('disconnect') | Out-Null
+                $targetSerial = $selectedDevice.Serial
+            }
+            'wireless-bootstrap' {
+                $targetSerial = Start-WirelessBootstrap -AdbExecutable $adbExe -Device $selectedDevice
+            }
         }
     }
 
+    $videoProfile = Get-VideoProfileSelection
     $audio = Get-AudioSelection
-    $scrcpyArgs = @('--serial', $targetSerial) + $audio.Args
+    $scrcpyArgs = @('--serial', $targetSerial) + $videoProfile.Args + $audio.Args
     Invoke-Scrcpy -Executable $scrcpyExe -ArgumentList $scrcpyArgs -DuplicationRequested:$audio.DuplicationRequested
 } catch {
     Write-Host ''
     Write-Host "[ERROR] $($_.Exception.Message)" -ForegroundColor Red
     exit 1
+}
 }

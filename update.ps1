@@ -8,6 +8,9 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+$ScriptDir = $PSScriptRoot
+. (Join-Path $ScriptDir 'lib\scrcpy-install.ps1')
+. (Join-Path $ScriptDir 'lib\platform-tools-install.ps1')
 
 function Update-System {
     param(
@@ -61,6 +64,22 @@ function Update-System {
         )
 
         Write-Host "`n--- Updating Apps (Winget Upgrade All) ---" -ForegroundColor Cyan
+
+        Write-Host "  [*] Updating Android platform-tools from Google..." -ForegroundColor Yellow
+        try {
+            $platformToolsResult = Install-PlatformToolsRuntime
+            Write-Host "  [OK] platform-tools installed to $($platformToolsResult.InstallRoot)" -ForegroundColor Green
+        } catch {
+            Write-Warning "  Failed to update platform-tools: $($_.Exception.Message)"
+        }
+
+        Write-Host "  [*] Updating scrcpy runtime from official GitHub release..." -ForegroundColor Yellow
+        try {
+            $scrcpyResult = Install-ScrcpyRuntime
+            Write-Host "  [OK] scrcpy $($scrcpyResult.Version) installed to $($scrcpyResult.InstallRoot)" -ForegroundColor Green
+        } catch {
+            Write-Warning "  Failed to update scrcpy runtime: $($_.Exception.Message)"
+        }
 
         # Retrieve currently pinned packages once for comparison
         $pinnedOutput = winget pin list --accept-source-agreements 2>&1 | Out-String
