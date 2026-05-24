@@ -73,7 +73,7 @@ The goal is simple: fewer repetitive keystrokes, less hunting through GUI settin
 | Command | Description |
 | :--- | :--- |
 | `update` | System update (Winget default, Windows Update, NPM, Python) |
-| `clean-system` | Cleans temp folders, Recycle Bin, and Windows Update cache |
+| `clean-system` | Cleans temp folders, Recycle Bin, Windows Update cache, deletes broken shortcuts, and cleans registry/folders remnants |
 | `sysinfo` | Quick hardware, OS, and resource summary |
 | `top-proc` | Top CPU and RAM consumers in the terminal |
 | `systemctl` | Start, stop, and inspect Windows services |
