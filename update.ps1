@@ -116,9 +116,25 @@ function Update-System {
                 Write-Host "  [OK] npm updated to v$v" -ForegroundColor Green
             }
 
-            Write-Host "  [*] Updating all global npm packages..." -ForegroundColor Yellow
-            npm update -g
-            Write-Host "  [OK] Global npm environment up-to-date." -ForegroundColor Green
+            Write-Host "  [*] Checking for outdated global npm packages..." -ForegroundColor Yellow
+            $npmOutdatedStr = npm outdated -g --json 2>&1 | Out-String
+            try {
+                $outdatedNpmJson = $npmOutdatedStr | ConvertFrom-Json
+            } catch {
+                $outdatedNpmJson = $null
+            }
+
+            if ($outdatedNpmJson) {
+                foreach ($pkg in $outdatedNpmJson.psobject.properties) {
+                    $name = $pkg.Name
+                    $info = $pkg.Value
+                    Write-Host "  [+] Upgrading NPM package: $name ($($info.current) -> $($info.latest))" -ForegroundColor Cyan
+                    npm install -g "$name@latest" | Out-Null
+                }
+                Write-Host "  [OK] Outdated NPM packages have been upgraded." -ForegroundColor Green
+            } else {
+                Write-Host "  [OK] All global NPM packages are already up-to-date." -ForegroundColor Green
+            }
         } else {
             Write-Host "  [Skip] NPM is not installed on this system." -ForegroundColor DarkGray
         }
@@ -131,10 +147,28 @@ function Update-System {
 
         if ($pyCmd) {
             Write-Host "  [*] Upgrading pip for $pyCmd environment..." -ForegroundColor Yellow
-            & $pyCmd -m pip install --upgrade pip
+            & $pyCmd -m pip install --upgrade pip | Out-Null
             if ($LASTEXITCODE -eq 0) {
                 $v = (& $pyCmd --version).Trim()
                 Write-Host "  [OK] $v pip upgraded." -ForegroundColor Green
+            }
+
+            Write-Host "  [*] Checking for outdated global PIP packages..." -ForegroundColor Yellow
+            $pipOutdatedStr = & $pyCmd -m pip list --outdated --format=json 2>&1 | Out-String
+            try {
+                $outdatedPip = $pipOutdatedStr | ConvertFrom-Json
+            } catch {
+                $outdatedPip = $null
+            }
+
+            if ($outdatedPip) {
+                foreach ($pkg in $outdatedPip) {
+                    Write-Host "  [+] Upgrading PIP package: $($pkg.name) ($($pkg.version) -> $($pkg.latest_version))" -ForegroundColor Cyan
+                    & $pyCmd -m pip install --upgrade $($pkg.name) | Out-Null
+                }
+                Write-Host "  [OK] Outdated PIP packages have been upgraded." -ForegroundColor Green
+            } else {
+                Write-Host "  [OK] All global PIP packages are already up-to-date." -ForegroundColor Green
             }
         } else {
             Write-Host "  [Skip] Python is not installed on this system." -ForegroundColor DarkGray

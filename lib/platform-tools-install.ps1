@@ -52,10 +52,31 @@ function Install-PlatformToolsRuntime {
     }
 
     $installRoot = Get-PlatformToolsInstallRoot
+    $downloadUrl = 'https://dl.google.com/android/repository/platform-tools-latest-windows.zip'
+
+    try {
+        $headers = (Invoke-WebRequest -Uri $downloadUrl -Method Head -UseBasicParsing -ErrorAction SilentlyContinue).Headers
+        $remoteETag = if ($headers['ETag']) { $headers['ETag'] -replace '"', '' } else { $null }
+    } catch {
+        $remoteETag = $null
+    }
+
+    $etagPath = Join-Path $installRoot '.etag'
+    if ($remoteETag -and (Test-Path -LiteralPath $etagPath)) {
+        $localETag = (Get-Content -LiteralPath $etagPath -Raw).Trim()
+        if ($localETag -eq $remoteETag) {
+            Write-Host '  [OK] platform-tools is already up-to-date. Skipping download.' -ForegroundColor Green
+            return [PSCustomObject]@{
+                InstallRoot = $installRoot
+                DownloadUrl = $downloadUrl
+                Skipped     = $true
+            }
+        }
+    }
+
     $stagingRoot = Join-Path ([System.IO.Path]::GetTempPath()) ('platform-tools-install-' + [guid]::NewGuid().ToString('N'))
     $zipPath = Join-Path $stagingRoot 'platform-tools-latest-windows.zip'
     $extractRoot = Join-Path $stagingRoot 'extract'
-    $downloadUrl = 'https://dl.google.com/android/repository/platform-tools-latest-windows.zip'
 
     try {
         New-Item -ItemType Directory -Path $extractRoot -Force | Out-Null
@@ -74,6 +95,9 @@ function Install-PlatformToolsRuntime {
 
         New-Item -ItemType Directory -Path (Split-Path -Parent $installRoot) -Force | Out-Null
         Move-Item -LiteralPath $payloadRoot -Destination $installRoot
+        if ($remoteETag) {
+            Set-Content -Path (Join-Path $installRoot '.etag') -Value $remoteETag -Force
+        }
         # Add-PlatformToolsToSystemPath -InstallRoot $installRoot
 
         return [PSCustomObject]@{

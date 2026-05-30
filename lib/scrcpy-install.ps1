@@ -138,6 +138,19 @@ function Install-ScrcpyRuntime {
 
     $asset = Get-ScrcpyReleaseAsset
     $installRoot = Get-ScrcpyInstallRoot
+
+    $currentVersion = Get-ScrcpyInstalledVersion
+    if ($currentVersion -and $currentVersion -eq $asset.Version) {
+        Write-Host "  [OK] scrcpy is already up-to-date ($($asset.Version)). Skipping download." -ForegroundColor Green
+        return [PSCustomObject]@{
+            Version     = $asset.Version
+            InstallRoot = $installRoot
+            DownloadUrl = $asset.DownloadUrl
+            AssetName   = $asset.AssetName
+            Skipped     = $true
+        }
+    }
+
     $stagingRoot = Join-Path ([System.IO.Path]::GetTempPath()) ('scrcpy-install-' + [guid]::NewGuid().ToString('N'))
     $zipPath = Join-Path $stagingRoot $asset.AssetName
     $extractRoot = Join-Path $stagingRoot 'extract'
